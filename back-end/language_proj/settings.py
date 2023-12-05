@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import dotenv_values
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,9 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
+env = dotenv_values(".env")
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pa@b2_ew$_nw!gi*o@0^s@d7i%--zpe^_ubgpb@eut_x0#b7*w'
+SECRET_KEY = env.get("DJANGO_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'user_app',
     'post_app',
     'comment_app',
+    'translator_api_app',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,4 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'user_app.User'
+

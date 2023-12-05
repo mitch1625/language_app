@@ -9,3 +9,4 @@ def validate_name(name):
     if good_name:
         return name
     raise ValidationError(error_message, params={"name":name})
+

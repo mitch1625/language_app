@@ -8,11 +8,12 @@ class user_test(TestCase):
     def test_01_valid_name(self):
         user = User(
             email='eric@gmail.com',
+            username = 'eric@gmail.com',
             password = '123',
             first_name = 'Eric',
             last_name = 'Mitchell',
-            native_language= User.ENGLISH,
-            display_name = "mitch"
+            # native_language= User.ENGLISH,
+            # display_name = "eric"
             )
         try:
             user.full_clean()

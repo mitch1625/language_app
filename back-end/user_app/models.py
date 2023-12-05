@@ -16,9 +16,9 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
 
-    ENGLISH = 'English'
-    KOREAN = 'Korean'
-    SPANISH = 'Spanish'         # Create variables for error prevention and logic seperation
+    ENGLISH = 'en'
+    KOREAN = 'ko'
+    SPANISH = 'es'         # Create variables for error prevention and logic seperation
     LANGUAGE_CHOICES = [        # Easy to adjust when refactoring/changing code
         (ENGLISH, "English"),   
         (KOREAN, 'Korean'),
@@ -26,9 +26,10 @@ class User(AbstractUser):
     ]
 
     ## Create a seperate Profile model??
-    first_name = models.CharField(max_length=255, blank=True, null=True, validators=[validate_name])
-    last_name = models.CharField(max_length=255, blank=True, null=True, validators=[validate_name])
-    native_language = models.CharField(choices=LANGUAGE_CHOICES)        
+    first_name = models.CharField(max_length=100, blank=True, null=True, validators=[validate_name])
+    last_name = models.CharField(max_length=100, blank=True, null=True, validators=[validate_name])
+    native_language = models.CharField(choices=LANGUAGE_CHOICES, blank=True, null=True)
+    target_language = models.CharField(choices=LANGUAGE_CHOICES, blank=True, null=True)        
     display_name = models.CharField(max_length=50, blank=True, null=True, validators=[])
     premium_account = models.BooleanField(default=False)
     
