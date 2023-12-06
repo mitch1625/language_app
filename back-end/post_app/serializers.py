@@ -4,7 +4,6 @@ from .models import Post
 
 class PostSerializer(ModelSerializer):
     poster = SerializerMethodField()
-    comment = SerializerMethodField()
     class Meta:
         model = Post
         fields = ['poster', 'post_content']
