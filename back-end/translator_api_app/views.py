@@ -7,6 +7,7 @@ from language_proj.settings import env
 
 class Translator(APIView):
     def get(self, request):
+        print(request.user.native_language)
         # Add your key and endpoint
         key = env.get("TRANSLATOR_KEY")
         endpoint = "https://api.cognitive.microsofttranslator.com"
@@ -20,8 +21,8 @@ class Translator(APIView):
 
         params = {
             'api-version': '3.0',
-            'from': 'en',
-            'to': ['KO', 'zu']
+            'from': f'{request.user.native_language}',
+            'to': [f'{request.user.target_language}']
         }
 
         headers = {
@@ -39,6 +40,7 @@ class Translator(APIView):
 
         request = requests.post(constructed_url, params=params, headers=headers, json=body)
         response = request.json()
-
-        print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
+        print(response[0]['translations'][0]['text'])
+        # print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
         return Response(response)
+    
