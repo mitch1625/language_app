@@ -1,0 +1,18 @@
+[
+    {
+        "model": "post_app.post",
+        "pk": 1,
+        "fields": {
+            "poster": 1,
+            "post_content" : "Woohoo! Its my first post!"
+        }
+    },
+    {
+        "model": "post_app.post",
+        "pk": 2,
+        "fields" : {
+            "poster": 3,
+            "post_content": "I need some help with language!"
+        }
+    }
+]
