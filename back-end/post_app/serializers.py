@@ -12,5 +12,3 @@ class PostSerializer(ModelSerializer):
     def get_poster(self, obj):
         return str(obj.poster.display_name)
     
-    def get_comment(self,obj):
-        return str(obj.comment.content)
