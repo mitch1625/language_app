@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializers import Post, PostSerializer
 
-# Create your views here.
+class All_posts(APIView):
+    def get(self, request):
+        posts = PostSerializer(Post.objects.order_by('id'), many=True)
+        return Response(posts.data)

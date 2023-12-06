@@ -1,9 +1,16 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from .models import Post
-from user_app.serializers import UserSerializer, User
+
 
 class PostSerializer(ModelSerializer):
-    poster = UserSerializer()
+    poster = SerializerMethodField()
+    comment = SerializerMethodField()
     class Meta:
         model = Post
         fields = ['poster', 'post_content']
+
+    def get_poster(self, obj):
+        return str(obj.poster.display_name)
+    
+    def get_comment(self,obj):
+        return str(obj.comment.content)
