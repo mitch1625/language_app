@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import User, UserSerializer, LanguageSerializer
+from .serializers import User, UserSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -68,5 +68,5 @@ class Log_out(UserPermissions):
         
 class Language_list(APIView):
     def get(self, request):
-        languages = LanguageSerializer(User.LANGUAGE_CHOICES, many=True)
-        return languages
+        languages = User.LANGUAGE_CHOICES
+        return Response(languages)
