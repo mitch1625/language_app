@@ -14,7 +14,7 @@ const SignUpPage = () => {
     const [displayName, setDisplayName] = useState("")
     const [natLang, setNatLang] = useState("")
     const [targLang, setTargLang] = useState("")
-
+    const [languageList, setLanguageList] = useState([])
 
     const createUser = async(e) => {
         e.preventDefault()
@@ -37,11 +37,37 @@ const SignUpPage = () => {
             }
      }
 
-    // const getLanguages = async() => {
-    //     let response = await axios
-            
-    // }
+    const getLanguages = async() => {
+        let response = await axios
+        .get("http://127.0.0.1:8000/api/v1/users/languages/")
+        .catch((err) => {
+            console.log(err)
+        })
+        console.log(response.data)
+        setLanguageList(response.data)
+    }
 
+    
+    const getTargLanguage = (e) => {
+        for (let x in languageList) {
+            if (languageList[x][1] === e){
+            setTargLang(languageList[x][0])
+            }
+        }
+    }
+
+    const getNatLanguage = (e) => {
+        for (let x in languageList) {
+            if (languageList[x][1] === e){
+            setNatLang(languageList[x][0])
+            }
+        }
+    }
+
+
+    useEffect(()=>{
+        getLanguages()
+    },[])
     return (
         <>
         This is the sign up page.
@@ -56,6 +82,14 @@ const SignUpPage = () => {
                 />
             </div>
             <div>
+                Password:
+                <input
+                type="password"
+                name="password"
+                onChange={(e)=>setPassword(e.target.value)}
+                />
+            </div>
+            <div>
                 Display Name:
                 <input
                     type='text'
@@ -64,12 +98,28 @@ const SignUpPage = () => {
                 />
             </div>
             <div>
-                Target Language:
-                <select>
-                    
+                Native Language:
+                <select
+                onChange={(e)=>getNatLanguage(e.target.value)}
+                >
+                    {languageList.map((lang)=> (
+                        <option key={lang.value}>{lang[1]}</option>
+                    ))}
                 </select>
             </div>
+            <div>
+                Target Language:
+                <select
+                onChange={(e)=>getTargLanguage(e.target.value)}
+                >
+                    {languageList.map((lang)=> (
+                        <option key={lang.value}>{lang[1]}</option>
+                    ))}
+                </select>
+            </div>
+            <input type="submit" value="Create Account" />
         </form>
+        <button onClick={()=>console.log(natLang)}>CONSOLE LOG BUTTON</button>
         </>
     )
 }
