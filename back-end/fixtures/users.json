@@ -6,8 +6,6 @@
             "email": "jon@mail.com",
             "password": 123,
             "username": "jon@mail.com",
-            "first_name": "Jon",
-            "last_name": "Smith",
             "native_language": "en",
             "target_language": "es",
             "display_name": "Jony"
@@ -20,8 +18,6 @@
             "email": "barb@mail.com",
             "password": 123,
             "username": "barb@mail.com",
-            "first_name": "Barb",
-            "last_name": "Babs",
             "native_language": "es",
             "target_language": "en",
             "display_name": "ItsBarb"
@@ -34,8 +30,6 @@
             "email": "kevinn@mail.com",
             "password": 123,
             "username": "kevin@mail.com",
-            "first_name": "Kevin",
-            "last_name": "James",
             "native_language": "en",
             "target_language": "ko",
             "display_name": "BigKev"
