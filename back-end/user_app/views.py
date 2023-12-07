@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import User, UserSerializer
+from .serializers import User, UserSerializer, LanguageSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -11,6 +11,7 @@ from rest_framework.status import (
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
+
 
 class SignUp(APIView):
     def post(self,request):
@@ -62,4 +63,10 @@ class Log_out(UserPermissions):
     def post(self, request):
         request.user.auth_token.delete()
         return Response(status=HTTP_204_NO_CONTENT)
+
+  
         
+class Language_list(APIView):
+    def get(self, request):
+        languages = LanguageSerializer(User.LANGUAGE_CHOICES, many=True)
+        return languages
