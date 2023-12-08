@@ -18,11 +18,13 @@ const Login = () => {
         className="mb-3"
       >
         <Form.Control type="email" placeholder="name@example.com" 
+        value={email}
         onChange={(e)=> setEmail(e.target.value)}
         />
       </FloatingLabel>
       <FloatingLabel controlId="floatingPassword" label="Password">
         <Form.Control type="password" placeholder="Password"
+        value={password}
         onChange={(e)=>setPassword(e.target.value)}
         />
       </FloatingLabel>

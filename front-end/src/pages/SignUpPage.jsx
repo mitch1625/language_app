@@ -1,6 +1,7 @@
-import axios from "axios"
+import { api } from "../utilities";
 import Row from "react-bootstrap/esm/Row"
 import { useState, useEffect } from "react"
+
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -8,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
-const SignUpPage = () => {
+const SignUpPage = ({ setUser }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [displayName, setDisplayName] = useState("")
@@ -27,19 +28,20 @@ const SignUpPage = () => {
             'username': email
         }
         
-        let response = await axios
-            .post("http://127.0.0.1:8000/api/v1/users/signup/", data)
+        let response = await api
+            .post("users/signup/", data)
             .catch((err)=>{
                 console.log(err)
             })
             if (response.status === 201){
-                alert('user created')
+                setUser(response.data.email);
+                localStorage.setItem("token", response.data.token)
             }
      }
 
     const getLanguages = async() => {
-        let response = await axios
-        .get("http://127.0.0.1:8000/api/v1/users/languages/")
+        let response = await api
+        .get("users/languages/")
         .catch((err) => {
             console.log(err)
         })
@@ -94,6 +96,7 @@ const SignUpPage = () => {
                 <input
                     type='text'
                     placeholder=""
+                    value={displayName}
                     onChange={(e)=>setDisplayName(e.target.value)}
                 />
             </div>
@@ -101,6 +104,7 @@ const SignUpPage = () => {
                 Native Language:
                 <select
                 onChange={(e)=>getNatLanguage(e.target.value)}
+                value={natLang}
                 >
                     {languageList.map((lang)=> (
                         <option key={lang.value}>{lang[1]}</option>

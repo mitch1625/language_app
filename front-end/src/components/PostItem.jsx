@@ -21,7 +21,7 @@ const PostItem = () => {
 
     return(
         <ul>
-            {posts.map((post) => (
+            {/* {posts.map((post) => (
                 <li
                 key = {post.id}
                 >   
@@ -31,23 +31,8 @@ const PostItem = () => {
                     Poster : {post.poster} <br />
                     Content : {post.post_content}
                     </li>
-            ))}
+            ))} */}
         </ul>
-  
-
-// <ul>
-// {pokemon.map((poke) => (
-//   // iterates through the list of pokemon to render a li for each pokemon within our database
-//   <li
-//     key={poke.id}
-//   >
-//     {
-//         //Display a pokemons Name, level and moves on our user interface
-//     }
-//     Name: {poke.name} <br /> Level: {poke.level}
-//   </li>
-//    ))}
-// </ul>
     )
 }
 

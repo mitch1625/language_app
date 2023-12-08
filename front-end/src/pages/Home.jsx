@@ -5,10 +5,9 @@ import Login from "../components/Login"
 
 
 export const Home = () => {
-    const [user, setUser] = useState(null)
     return (
         <>
-        {user ? console.log('yes') : <Login />}
+        {user ? console.log('LOGGED IN') : <Login />}
         
 
         <PostItem/>
