@@ -3,7 +3,7 @@ import FloatingLabel from 'react-bootstrap/esm/FloatingLabel';
 import Button from 'react-bootstrap/Button'
 import { useState, useEffect } from 'react';
 
-const Login = () => {
+const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     
@@ -11,7 +11,7 @@ const Login = () => {
 
     return (
     <>
-        <div>
+        <div id='loginbox'>
       <FloatingLabel
         controlId="floatingInput"
         label="Email address"
@@ -35,4 +35,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginPage

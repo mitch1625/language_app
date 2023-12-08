@@ -24,6 +24,7 @@ function App() {
   return (
     <>
       <NavBar />
+      
       <Outlet setUser={setUser} />
     </>
   )
