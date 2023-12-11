@@ -1,21 +1,19 @@
 import { api } from "../utilities";
 import Row from "react-bootstrap/esm/Row"
 import { useState, useEffect } from "react"
+import { useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
-
-
-
-const SignUpPage = ({ setUser }) => {
+const SignUpPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [displayName, setDisplayName] = useState("")
     const [natLang, setNatLang] = useState("")
     const [targLang, setTargLang] = useState("")
     const [languageList, setLanguageList] = useState([])
+    const navigate = useNavigate()
+    const {user, setUser} = useOutletContext()
 
     const createUser = async(e) => {
         e.preventDefault()
@@ -28,16 +26,21 @@ const SignUpPage = ({ setUser }) => {
             'username': email
         }
         
-        let response = await api
-            .post("users/signup/", data)
+        let response = await api.post("users/signup/", data)
             .catch((err)=>{
                 console.log(err)
             })
             if (response.status === 201){
                 setUser(response.data.email);
-                localStorage.setItem("token", response.data.token)
-            }
-     }
+                localStorage.setItem("token", response.data.token);
+                api.defaults.headers.common[
+                  "Authorization"
+                ] = `Token ${response.data.token}`;
+                navigate("/");
+              } else {
+                alert("Something Went wrong");
+              }
+            };
 
     const getLanguages = async() => {
         let response = await api

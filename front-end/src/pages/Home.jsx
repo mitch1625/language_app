@@ -1,14 +1,17 @@
 import PostItem from "../components/PostItem"
 import { useState, useEffect } from "react"
-import WelcomeComponent from "../components/WelcomeComponent"
-
+import { useOutletContext } from "react-router-dom"
+import UserCheck from "../components/UserCheck"
+import NavBar from "../components/NavBar"
 export const Home = () => {
+    const {user} = useOutletContext()
     return (
         <>
-        
-        <WelcomeComponent/>
-        <PostItem/>
+        {user ? 
+        <PostItem />
+        :
+        <UserCheck/>
+        }
         </>
     )
 }
-
