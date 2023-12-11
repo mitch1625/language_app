@@ -15,13 +15,15 @@ const PostItem = () => {
         setPosts(response.data)
     }
 
+
+
     useEffect(()=>{
         getAllPosts();
     }, [])
 
     return(
         <ul>
-            {/* {posts.map((post) => (
+            {posts.map((post) => (
                 <li
                 key = {post.id}
                 >   
@@ -31,7 +33,7 @@ const PostItem = () => {
                     Poster : {post.poster} <br />
                     Content : {post.post_content}
                     </li>
-            ))} */}
+            ))}
         </ul>
     )
 }
