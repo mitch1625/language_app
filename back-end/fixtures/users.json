@@ -34,5 +34,30 @@
             "target_language": "ko",
             "display_name": "BigKev"
         }
-    }
+    },
+    {
+            "model": "user_app.user",
+            "pk": 19,
+            "fields": {
+              "email": "example@example.com",
+              "username": "example@example.com",
+              "password": "your_password",
+              "display_name": "RandomDisplay",
+              "native_language": "en",
+              "target_language": "ko"
+        }
+    },
+    {
+        "model": "user_app.user",
+        "pk": 20,
+        "fields": {
+          "email": "testuser@example.com",
+          "username": "testuser@example.com",
+          "password": "securepass",
+          "display_name": "TestUser123",
+          "native_language": "en",
+          "target_language": "ko"
+        }
+      }
+      
 ]

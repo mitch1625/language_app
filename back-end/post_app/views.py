@@ -5,18 +5,15 @@ from user_app.serializers import User, UserSerializer
 
 class All_posts(APIView):
     def get(self, request):
-        # user_target = request.user.target_language
-        # p = Post.objects.filter()
-        # print(p.poster.native_language)
-
         posts = PostSerializer(Post.objects.order_by('id'), many=True)
-        # return Response(user.data)
-        # data = {
-        #     "posts" : posts.data,
-        #     "user": user.data
-        # }
+
+        user_target = request.user.target_language
+        user_native = request.user.native_language
+        users = User.objects.all().filter(native_language=user_target, target_language=user_native)
+        
+        # post = [user.user.all() for user in users if user.user.all()]
+        # print(post)
+        # ser_post = PostSerializer(post[0], many=True)
+        # print(ser_post.data)
         return Response(posts.data)
     
-
-
-    ## use object.filter(target_language="")
