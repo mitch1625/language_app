@@ -12,3 +12,4 @@ class PostSerializer(ModelSerializer):
     def get_poster(self, obj):
         return obj.poster.display_name, obj.poster.native_language, obj.poster.target_language
     
+

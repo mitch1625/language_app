@@ -68,8 +68,9 @@ const PostItem = () => {
             <Button style={{width:'100px'}}
             onClick={()=>{
                 // setText(post.post_content);
-                detectLanguage(text);
-                getTranslation()
+                // detectLanguage(text);
+                // getTranslation()
+                console.log('button disabled')
             }}
             >Translate</Button>
             </Card>
