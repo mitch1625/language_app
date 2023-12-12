@@ -13,3 +13,8 @@ class PostSerializer(ModelSerializer):
         return obj.poster.display_name, obj.poster.native_language, obj.poster.target_language
     
 
+class CreatePostSerializer(ModelSerializer):
+    poster = UserSerializer
+    class Meta:
+        model = Post
+        fields = ['post_content', 'poster']

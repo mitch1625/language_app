@@ -15,11 +15,11 @@ const PostItem = () => {
     const getAllPosts = async() => {
         axios.defaults.headers.common["Authorization"] = `Token ${token}`
         let response = await axios
-            .get("http://127.0.0.1:8000/api/v1/posts/")
+            .get("http://127.0.0.1:8000/api/v1/posts/filtered/")
             .catch((err)=> {
                 console.log(err.response)
             })
-        // console.log(response.data)
+        console.log(response.data)
         setPosts(response.data)
     }
 
@@ -53,6 +53,7 @@ const PostItem = () => {
 
     return(
         <>
+        {posts.length != 0 ? 
         <ul>
         {posts.map((post) => (
             <Card style={{ width: '18rem', marginBottom:'15px'}} key={post.id}
@@ -76,6 +77,8 @@ const PostItem = () => {
             </Card>
         ))}
         </ul>
+        :
+        "No posts to show for your learning goals"}
         {/* <button onClick={()=>{
             getTranslation()}}>TEST BUTTON</button> */}
         </>

@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import Post, PostSerializer
+from .serializers import Post, PostSerializer, CreatePostSerializer
 from user_app.serializers import User, UserSerializer
 from user_app.views import UserPermissions
 from rest_framework.status import (
@@ -19,18 +19,24 @@ class All_posts(UserPermissions):
 
         users = User.objects.all().filter(native_language=user_target, target_language=user_native)
         post = [user.user.all() for user in users if user.user.all()]
-        # print(post)
-        ser_post = PostSerializer(post[0], many=True)
+        print(post)
+        # ser_post = PostSerializer(post[0], many=True)
         # print(ser_post.data)
-        return Response(ser_post.data)
+        if post != []:
+            ser_post = PostSerializer(post[0], many=True)
+            print(ser_post.data)
+            return Response(ser_post.data)
+        return Response('')
 
 
 class Create_post(UserPermissions):
     def post(self,request):
-        data = request.data
+        data = request.data.copy()
+        data['poster'] = request.user.id
 
+        print(request)
         print(data)
-        new_post = PostSerializer(data=data)
+        new_post = CreatePostSerializer(data=data)
         
         if new_post.is_valid():
             new_post.save()
