@@ -17,7 +17,6 @@ const NavBar = ( { user, setUser } ) => {
     <Navbar className="bg-body-tertiary">
       <Container>
         <Link to="/">Home</Link>
-        <Link to="login/">Login</Link>
         <Link onClick={logout}>Logout</Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

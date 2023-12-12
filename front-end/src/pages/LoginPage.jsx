@@ -20,7 +20,7 @@ const LoginPage = () => {
         password : password
       })
       if (response.status === 200){
-        console.log(response.data)
+        // console.log(response.data)
         setUser(response.data.email);
         localStorage.setItem("token", response.data.token)
         api.defaults.headers.common[

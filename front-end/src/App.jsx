@@ -10,8 +10,9 @@ function App() {
 
   const getInfo = async() => {
     let token = localStorage.getItem("token")
-    console.log(token)
+    // console.log(token)
     if (token){
+      // console.log(token)
       api.defaults.headers.common["Authorization"] = `Token ${token}`
       let response = await api.get("users/info/")
       // console.log(response.data)

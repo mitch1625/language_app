@@ -5,8 +5,10 @@ import { useOutletContext } from "react-router-dom"
 const PostItem = () => {
     const [posts, setPosts] = useState([])
     const {user} = useOutletContext()
+    let token = localStorage.getItem("token")
 
     const getAllPosts = async() => {
+        axios.defaults.headers.common["Authorization"] = `Token ${token}`
         let response = await axios
             .get("http://127.0.0.1:8000/api/v1/posts/")
             .catch((err)=> {
@@ -20,7 +22,7 @@ const PostItem = () => {
 
     useEffect(()=>{
         getAllPosts();
-    }, [])
+    },[])
 
     return(
         <ul>
