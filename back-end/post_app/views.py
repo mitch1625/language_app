@@ -14,8 +14,7 @@ class All_posts(UserPermissions):
 
         users = User.objects.all().filter(native_language=user_target, target_language=user_native)
         post = [user.user.all() for user in users if user.user.all()]
-
-        ser_post = PostSerializer(post, many=True)
-        print(ser_post.data)
-        return Response(posts.data)
-    
+        # print(post)
+        ser_post = PostSerializer(post[0], many=True)
+        # print(ser_post.data)
+        return Response(ser_post.data)

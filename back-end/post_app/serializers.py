@@ -10,5 +10,5 @@ class PostSerializer(ModelSerializer):
         fields = ['poster', 'post_content']
 
     def get_poster(self, obj):
-        return obj.poster.display_name
+        return obj.poster.display_name, obj.poster.native_language, obj.poster.target_language
     
