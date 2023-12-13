@@ -14,5 +14,21 @@
             "poster": 3,
             "post_content": "I need some help with language!"
         }
+    },
+    {
+        "model": "post_app.post",
+        "pk": 3,
+        "fields" : {
+            "poster": 4,
+            "post_content": "TEST TEST TEST"
+        }
+    },
+    {
+        "model": "post_app.post",
+        "pk": 4,
+        "fields" : {
+            "poster": 5,
+            "post_content": "MORE TESTING TEST"
+        }
     }
 ]

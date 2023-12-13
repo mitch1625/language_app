@@ -1,11 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Form from 'react-bootstrap/Form';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useOutletContext } from 'react-router-dom';
 
-const CreatePost = () => {
+const CreatePostItem = () => {
     const [open, setOpen] = useState(false);
     const [postContent, setPostContent] = useState("")
     const {user} = useOutletContext()
@@ -13,7 +13,7 @@ const CreatePost = () => {
     const addPost = async(e) => {
       e.preventDefault()
       let data = {
-        "poster": user.display_name,
+        "poster": user,
         "post_content": postContent
       }
 
@@ -36,9 +36,9 @@ const CreatePost = () => {
                 Create Post
             </Button>{' '}
             <Collapse in={open}>
-            {/* <Form
+            <Form
              onSubmit={(e)=>addPost(e)}
-             > */}
+             >
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Enter Post Content</Form.Label>
@@ -47,11 +47,11 @@ const CreatePost = () => {
               onClick={()=>console.log(user)}
               >Submit</Button>
             </Form.Group>
-            {/* </Form> */}
+            </Form>
             </Collapse>
         </>
     )
 }
 
 
-export default CreatePost
+export default CreatePostItem

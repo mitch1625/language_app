@@ -7,7 +7,7 @@ class PostSerializer(ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['poster', 'post_content']
+        fields = ['id','poster', 'post_content']
 
     def get_poster(self, obj):
         return obj.poster.display_name, obj.poster.native_language, obj.poster.target_language

@@ -6,11 +6,12 @@ from rest_framework.views import APIView
 from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
-    HTTP_400_BAD_REQUEST
+    HTTP_400_BAD_REQUEST,
+    HTTP_404_NOT_FOUND
 )
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 
 
 class SignUp(APIView):
@@ -30,17 +31,24 @@ class SignUp(APIView):
         
 class Log_in(APIView):
     def post(self, request):
-        try:
-            email = request.data['email']
-            password = request.data['password']
-            user = authenticate(username=email, password=password)
-            if user:
-                token, created = Token.objects.get_or_create(user=user)
-                return Response({"email": user.email, "token": token.key})
-            return Response("Something went wrong creating a token", status=(HTTP_400_BAD_REQUEST))
-        except Exception as e:
-            print(e)
-            return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
+        data = request.data
+        user = authenticate(username = data.get("email"), password = data.get('password'))
+        if user is not None:
+            token, created = Token.objects.get_or_create(user=user)
+            login(request, user)
+            return Response({"user": user.email, "token": token.key})
+        return Response("Improper Credentials", status=HTTP_404_NOT_FOUND)
+        # try:
+        #     email = request.data['email']
+        #     password = request.data['password']
+        #     user = authenticate(username=email, password=password)
+        #     if user:
+        #         token, created = Token.objects.get_or_create(user=user)
+        #         return Response({"email": user.email, "token": token.key})
+        #     return Response("Something went wrong creating a token", status=(HTTP_400_BAD_REQUEST))
+        # except Exception as e:
+        #     print(e)
+        #     return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
         
 
 class UserPermissions(APIView):
