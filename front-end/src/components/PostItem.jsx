@@ -10,6 +10,7 @@ const PostItem = () => {
     const [text, setText] = useState("")
     const [posterLang, setPosterLang] = useState("")
     const [translation, setTranslation] = useState("")
+    const [showTranslation, setShowTranslation] = useState("")
 
     let token = localStorage.getItem("token")
 
@@ -20,7 +21,7 @@ const PostItem = () => {
             .catch((err)=> {
                 console.log(err.response)
             })
-        console.log(response.data)
+        // console.log(response.data)
         setPosts(response.data)
     }
 
@@ -53,28 +54,31 @@ const PostItem = () => {
         getAllPosts();
     },[])
 
-    useEffect(()=>{
-        
-    })
+
     return(
         <>
         {console.log}
         {posts.length != 0 ? 
         <ul>
         {posts.map((post) => (
-            <Card style={{ width: '18rem', marginBottom:'15px'}} key={post.id} 
+
+            <Card key={post.id} id={post.id} style={{ width: '18rem', marginBottom:'15px'}}
                 onMouseEnter={()=>{setText(post.post_content)}}>
             <Card.Body>
                 <Card.Title>{post.poster[0]}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
                 <Card.Text>
                 {post.post_content}
-                {translation === null ? null : translation}
+                {showTranslation == post.id && (
+                    translation
+                )
+                }
                 </Card.Text>
             </Card.Body>
             <Button style={{width:'100px'}}
                 onClick={()=>{
-                    setText(post.post_content);
+                    // setText(post.post_content);
+                    setShowTranslation(post.id)
                     detectLanguage(text);
                     getTranslation()
                 }}>

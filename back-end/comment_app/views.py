@@ -8,3 +8,7 @@ class All_comments(APIView):
     def get(self, request):
         comments = CommentSerializer(Comment.objects.order_by('id'), many=True)
         return Response(comments.data)
+    
+
+class Create_comment(APIView):
+    pass

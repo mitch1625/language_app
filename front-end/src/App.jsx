@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
 import { api } from './utilities'
-import UserCheck from './components/UserCheck'
+
 
 function App() {
   const [user, setUser] = useState(null)
@@ -22,7 +22,7 @@ function App() {
 
   useEffect(()=>{
     getInfo()
-  },[user])
+  },[])
   
   return (
     <>
