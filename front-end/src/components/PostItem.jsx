@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
-const PostItem = () => {
+export const PostItem = () => {
     const [posts, setPosts] = useState([])
     const {user} = useOutletContext()
     const [text, setText] = useState("")
@@ -55,9 +55,15 @@ const PostItem = () => {
     },[])
 
 
+    const onClickHandler = (post) => {
+        // setText(post.post_content)
+        setShowTranslation(post.id)
+        detectLanguage(text)
+        getTranslation()
+    }
+
     return(
         <>
-        {console.log}
         {posts.length != 0 ? 
         <ul>
         {posts.map((post) => (
@@ -77,10 +83,7 @@ const PostItem = () => {
             </Card.Body>
             <Button style={{width:'100px'}}
                 onClick={()=>{
-                    // setText(post.post_content);
-                    setShowTranslation(post.id)
-                    detectLanguage(text);
-                    getTranslation()
+                    onClickHandler(post)
                 }}>
                 Translate
             </Button>
@@ -94,5 +97,3 @@ const PostItem = () => {
         </>
     )
 }
-
-export default PostItem

@@ -1,4 +1,4 @@
-import PostItem from "../components/PostItem"
+import {PostItem} from "../components/PostItem"
 import { useState, useEffect } from "react"
 import { useOutletContext } from "react-router-dom"
 import UserCheck from "../components/UserCheck"
