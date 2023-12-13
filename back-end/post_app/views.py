@@ -11,7 +11,7 @@ from rest_framework.status import (
 
 class All_posts(UserPermissions):
     def get(self, request):
-        posts = PostSerializer(Post.objects.order_by('id'), many=True)
+        # posts = PostSerializer(Post.objects.order_by('id'), many=True)
 
         user_target = request.user.target_language
         user_native = request.user.native_language
@@ -19,13 +19,14 @@ class All_posts(UserPermissions):
 
         users = User.objects.all().filter(native_language=user_target, target_language=user_native)
         post = [user.user.all() for user in users if user.user.all()]
-        print(post)
-        # ser_post = PostSerializer(post[0], many=True)
-        # print(ser_post.data)
-        if post != []:
-            ser_post = PostSerializer(post[0], many=True)
-            print(ser_post.data)
-            return Response(ser_post.data)
+        # print(post)
+
+        result = []
+
+        ser_post = PostSerializer(post[0], many=True)
+
+
+        return Response(ser_post.data)
         return Response('')
 
 
@@ -34,8 +35,8 @@ class Create_post(UserPermissions):
         data = request.data.copy()
         data['poster'] = request.user.id
 
-        print(request)
-        print(data)
+        # print(request)
+        # print(data)
         new_post = CreatePostSerializer(data=data)
         
         if new_post.is_valid():
