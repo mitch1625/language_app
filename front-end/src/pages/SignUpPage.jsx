@@ -48,7 +48,7 @@ const SignUpPage = () => {
         .catch((err) => {
             console.log(err)
         })
-        console.log(response.data)
+        // console.log(response.data)
         setLanguageList(response.data)
     }
 
@@ -107,7 +107,7 @@ const SignUpPage = () => {
                 Native Language:
                 <select
                 onChange={(e)=>getNatLanguage(e.target.value)}
-                value={natLang}
+                // value={natLang}
                 >
                     {languageList.map((lang)=> (
                         <option key={lang.value}>{lang[1]}</option>
