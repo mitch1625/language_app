@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useOutletContext } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
+import CommentItem from "./CommentItem"
+
 
 export const PostItem = () => {
     const [posts, setPosts] = useState([])
@@ -87,6 +89,7 @@ export const PostItem = () => {
                 }}>
                 Translate
             </Button>
+            <CommentItem/>
             </Card>
         ))}
         </ul>

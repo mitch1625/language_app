@@ -7,15 +7,17 @@ import { useState, useEffect } from 'react';
 
 
 const CommentItem = () => {
-  const [comment, setComment] = useState("")  
-  
+  const [commentText, setCommentText] = useState("")  
 
 return (
     <Form
     onSubmit={(e)=>e.preventDefault()}>
       <Row>
         <Col>
-          <Form.Control placeholder="Enter a comment" />
+          <Form.Control placeholder="Enter a comment"
+            onChange={(e)=>setCommentText(e.target.value)}>
+          </Form.Control>
+          
           <Button>Submit</Button>
         </Col>
       </Row>
