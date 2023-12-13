@@ -24,8 +24,6 @@ const PostItem = () => {
         setPosts(response.data)
     }
 
-<<<<<<< HEAD
-=======
     const detectLanguage = async() => {
         let data = {
             "Text": text
@@ -49,41 +47,29 @@ const PostItem = () => {
             setTranslation(response.data)
             console.log(translation)
     }
->>>>>>> fa9053a7b360e13d41acced60c3f15ca79a8aac2
 
 
     useEffect(()=>{
         getAllPosts();
     },[])
 
+    useEffect(()=>{
+        
+    })
     return(
         <>
+        {console.log}
         {posts.length != 0 ? 
         <ul>
-<<<<<<< HEAD
-            {posts.map((post) => (
-                <li
-                key = {post.id}
-                >   
-                    {
-
-                    }
-                    Poster : {post.poster} <br />
-                    Content : {post.post_content}
-                    </li>
-            ))}
-=======
         {posts.map((post) => (
-            <Card style={{ width: '18rem', marginBottom:'15px'}} key={post.id}
+            <Card style={{ width: '18rem', marginBottom:'15px'}} key={post.id} 
                 onMouseEnter={()=>{setText(post.post_content)}}>
             <Card.Body>
                 <Card.Title>{post.poster[0]}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
                 <Card.Text>
                 {post.post_content}
-                <div>
                 {translation === null ? null : translation}
-                </div>
                 </Card.Text>
             </Card.Body>
             <Button style={{width:'100px'}}
@@ -96,7 +82,6 @@ const PostItem = () => {
             </Button>
             </Card>
         ))}
->>>>>>> fa9053a7b360e13d41acced60c3f15ca79a8aac2
         </ul>
         :
         "No posts to show for your learning goals"}
