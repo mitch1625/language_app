@@ -5,7 +5,6 @@ from user_app.serializers import User, UserSerializer
 from user_app.views import UserPermissions
 from rest_framework.status import (
     HTTP_201_CREATED,
-    HTTP_204_NO_CONTENT,
     HTTP_400_BAD_REQUEST
 )
 from collections import ChainMap
