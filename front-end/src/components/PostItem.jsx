@@ -12,7 +12,7 @@ export const PostItem = () => {
     const [text, setText] = useState("")
     const [posterLang, setPosterLang] = useState("")
     const [translation, setTranslation] = useState([{}])
-    const [postId, setPostId] = useState(0)
+    const [postId, setPostId] = useState(null)
 
     let token = localStorage.getItem("token")
 
@@ -47,7 +47,6 @@ export const PostItem = () => {
                     'body': text
                 }
             })
-
             setTranslation([
                 ...translation,
                { postId: postId,
@@ -80,11 +79,9 @@ export const PostItem = () => {
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
                 <Card.Text>
                 {post.post_content}
-                <div>
                     {translation.map((item) => (
                         item['postId'] === post.id ? item['text']: null
                     ))}
-                </div>
                 </Card.Text>
             </Card.Body>
             <Button style={{width:'100px'}}
