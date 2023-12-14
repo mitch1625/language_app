@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 const CommentItem = ({id}) => {
@@ -14,7 +15,8 @@ const CommentItem = ({id}) => {
   const [postId, setPostId] = useState(null)
   const {user} = useOutletContext
   const [renderComment, setRenderComment] = useState([])
-  // const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+
 
 
   const getComments = async() => {
@@ -24,7 +26,7 @@ const CommentItem = ({id}) => {
         console.log(err)
       })
       setRenderComment(response.data)
-      console.log(response.data)
+      // console.log(response.data)
   }
 
 
@@ -58,20 +60,34 @@ return (
             onChange={(e)=>setCommentText(e.target.value)}>
           </Form.Control>
           <Button type='submit'>Submit</Button>
-
-          {/* Create comment list component? */}
-            {renderComment.map((comment)=> (
-          <ListGroup key={comment.id}>
-            <ListGroup.Item>
-              <div>
-                {comment['comment_user']}
+          {renderComment.length  === 0 ? 
+            null
+            :
+            <Button
+            onClick={() => setOpen(!open)}
+            aria-controls="example-collapse-text"
+            aria-expanded={open}
+            >
+              View Comments
+            </Button> 
+          }
+          {/* Collapse Component */}
+          <Collapse in={open}>
+            <div className="comment-collapse">
+              {renderComment.map((comment)=> (
+                
+              <ListGroup key={comment.id}>
+                <ListGroup.Item>
+                  <div>
+                    {comment['comment_user']}
+                  </div>
+                  {comment['content']}
+                
+              </ListGroup.Item>
+            </ListGroup>
+              ))}
               </div>
-              {comment['content']}
-             
-          </ListGroup.Item>
-          </ListGroup>
-            ))}
-            
+          </Collapse>
         </Col>
       </Row>
       {}
