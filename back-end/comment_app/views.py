@@ -8,14 +8,15 @@ from rest_framework.status import (
 )
 from django.shortcuts import get_object_or_404
 from post_app.models import Post
+from user_app.views import UserPermissions
 
-class All_comments(APIView):
+class All_comments(UserPermissions):
     def get(self, request):
         comments = CommentSerializer(Comment.objects.order_by('id'), many=True)
         return Response(comments.data)
     
 
-class Create_comment(APIView):
+class Create_comment(UserPermissions):
     def post(self, request):
         ## how to get post object?
         data = request.data.copy()
@@ -31,3 +32,12 @@ class Create_comment(APIView):
         else:
             return Response(new_comment.errors, status=HTTP_400_BAD_REQUEST)
 
+
+class Post_Comments(UserPermissions):
+    def get(self, request, post):
+        c = Comment.objects.filter(post=post)
+        # print(c)
+        c_ser = CommentSerializer(c, many=True)
+        # print(c_ser.data)
+        sorted_list = sorted(c_ser.data, key=lambda i: i['id'], reverse=True)
+        return Response (sorted_list)

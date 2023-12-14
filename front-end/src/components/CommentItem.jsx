@@ -2,34 +2,79 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/esm/Button';
-
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
+import axios from 'axios';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 const CommentItem = ({id}) => {
 
   const [commentText, setCommentText] = useState("")  
   const [postId, setPostId] = useState(null)
+  const {user} = useOutletContext
+  const [renderComment, setRenderComment] = useState([])
+  // const [open, setOpen] = useState(false)
 
-////// LEFT OFF ADDING FUNCTIONALITY TO COMMENT CARD
-///// EACH COMMENT SECTION IS AFFILIATED WITH POST ID WITH THAT ID PARAM
-//// write function to add comment next
 
+  const getComments = async() => {
+    let response = await axios 
+      .get(`http://127.0.0.1:8000/api/v1/comments/post/${id}`)
+      .catch((err)=>{
+        console.log(err)
+      })
+      setRenderComment(response.data)
+      console.log(response.data)
+  }
+
+
+  const createPost = async (e) => {
+    e.preventDefault()
+    let data = {
+      'post': postId,
+      'content':  commentText,
+      'comment_user': user
+    }
+    let response = await axios
+      .post("http://127.0.0.1:8000/api/v1/comments/createcomment/", data)
+      .catch((err)=>{
+        console.log(err)
+      })
+    if (response.status === 201){
+      window.location.reload()
+    }
+  }
   
+  useEffect(()=>{
+    getComments()
+  },[])
 return (
     <Form
-    onSubmit={(e)=>e.preventDefault()}>
+    onSubmit={(e)=>(createPost(e))}>
       <Row>
         <Col>
           <Form.Control placeholder="Enter a comment"
             onMouseEnter={()=> setPostId(id)}
             onChange={(e)=>setCommentText(e.target.value)}>
           </Form.Control>
-          {id}
-          <Button>Submit</Button>
+          <Button type='submit'>Submit</Button>
+
+          {/* Create comment list component? */}
+            {renderComment.map((comment)=> (
+          <ListGroup key={comment.id}>
+            <ListGroup.Item>
+              <div>
+                {comment['comment_user']}
+              </div>
+              {comment['content']}
+             
+          </ListGroup.Item>
+          </ListGroup>
+            ))}
+            
         </Col>
       </Row>
+      {}
     </Form>
 )
 
