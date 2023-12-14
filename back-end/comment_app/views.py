@@ -39,5 +39,5 @@ class Post_Comments(UserPermissions):
         # print(c)
         c_ser = CommentSerializer(c, many=True)
         # print(c_ser.data)
-        sorted_list = sorted(c_ser.data, key=lambda i: i['id'], reverse=True)
+        sorted_list = sorted(c_ser.data, key=lambda i: i['id'])
         return Response (sorted_list)
