@@ -40,7 +40,6 @@ export const PostItem = () => {
 
 
     const getTranslation = async() => {
-        // console.log(posterLang)
         let response = await axios
             .get("http://127.0.0.1:8000/api/v1/translate/", {
                 params: {
@@ -48,6 +47,7 @@ export const PostItem = () => {
                     'body': text
                 }
             })
+
             setTranslation([
                 ...translation,
                { postId: postId,
@@ -72,7 +72,7 @@ export const PostItem = () => {
         {posts.length != 0 ? 
         <ul>
         {posts.map((post) => (
-
+            
             <Card key={post.id} id={post.id} style={{ width: '18rem', marginBottom:'15px'}}
                 onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>
@@ -93,7 +93,7 @@ export const PostItem = () => {
                 }}>
                 Translate
             </Button>
-            <CommentItem/>
+            <CommentItem id={post.id}/>
             </Card>
         ))}
         </ul>
