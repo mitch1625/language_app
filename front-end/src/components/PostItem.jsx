@@ -11,8 +11,8 @@ export const PostItem = () => {
     const {user} = useOutletContext()
     const [text, setText] = useState("")
     const [posterLang, setPosterLang] = useState("")
-    const [translation, setTranslation] = useState("")
-    const [showTranslation, setShowTranslation] = useState("")
+    const [translation, setTranslation] = useState([{}])
+    const [postId, setPostId] = useState(0)
 
     let token = localStorage.getItem("token")
 
@@ -38,6 +38,7 @@ export const PostItem = () => {
     }
  
 
+
     const getTranslation = async() => {
         // console.log(posterLang)
         let response = await axios
@@ -47,7 +48,11 @@ export const PostItem = () => {
                     'body': text
                 }
             })
-            setTranslation(response.data)
+            setTranslation([
+                ...translation,
+               { postId: postId,
+                text: response.data}]
+            )
             console.log(translation)
     }
 
@@ -57,9 +62,7 @@ export const PostItem = () => {
     },[])
 
 
-    const onClickHandler = (post) => {
-        // setText(post.post_content)
-        setShowTranslation(post.id)
+    const onClickHandler = () => {
         detectLanguage(text)
         getTranslation()
     }
@@ -71,16 +74,17 @@ export const PostItem = () => {
         {posts.map((post) => (
 
             <Card key={post.id} id={post.id} style={{ width: '18rem', marginBottom:'15px'}}
-                onMouseEnter={()=>{setText(post.post_content)}}>
+                onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>
                 <Card.Title>{post.poster[0]}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
                 <Card.Text>
                 {post.post_content}
-                {showTranslation == post.id && (
-                    translation
-                )
-                }
+                <div>
+                    {translation.map((item) => (
+                        item['postId'] === post.id ? item['text']: null
+                    ))}
+                </div>
                 </Card.Text>
             </Card.Body>
             <Button style={{width:'100px'}}
@@ -95,8 +99,6 @@ export const PostItem = () => {
         </ul>
         :
         "No posts to show for your learning goals"}
-        {/* <button onClick={()=>{
-            getTranslation()}}>TEST BUTTON</button> */}
         </>
     )
 }
