@@ -38,17 +38,6 @@ class Log_in(APIView):
             login(request, user)
             return Response({"user": user.email, "token": token.key})
         return Response("Improper Credentials", status=HTTP_404_NOT_FOUND)
-        # try:
-        #     email = request.data['email']
-        #     password = request.data['password']
-        #     user = authenticate(username=email, password=password)
-        #     if user:
-        #         token, created = Token.objects.get_or_create(user=user)
-        #         return Response({"email": user.email, "token": token.key})
-        #     return Response("Something went wrong creating a token", status=(HTTP_400_BAD_REQUEST))
-        # except Exception as e:
-        #     print(e)
-        #     return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
         
 
 class UserPermissions(APIView):
@@ -73,8 +62,24 @@ class Log_out(UserPermissions):
         return Response(status=HTTP_204_NO_CONTENT)
 
   
-        
 class Language_list(APIView):
     def get(self, request):
         languages = User.LANGUAGE_CHOICES
         return Response(languages)
+    
+
+class Update_email(UserPermissions):
+    def get_user(self, request):
+        try:
+            return User.objects.get(id=request.user.id)
+        except:
+            raise HTTP_404_NOT_FOUND
+
+    # def put(self,request):
+    #     user = self.get_user(request.user.id)
+    #     user['email'] = request.data
+    #     user_ser = UserSerializer(user, data=request.data, partial=True)
+    #     print(user_ser.data)
+        
+
+    #     return Response('fwa')

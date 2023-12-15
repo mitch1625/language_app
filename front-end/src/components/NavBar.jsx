@@ -17,11 +17,12 @@ const NavBar = ( { user, setUser } ) => {
     <Navbar className="bg-body-tertiary">
       <Container>
         <Link to="/">Home</Link>
+        <Link to="/settings/">Settings</Link>
         <Link onClick={logout}>Logout</Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Logged in as: <a href="#login">{user}</a>
+            Logged in as: {user}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
