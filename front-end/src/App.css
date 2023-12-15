@@ -1,0 +1,18 @@
+    /* #root {
+        display: flex;
+        justify-content: center;
+    } */
+
+#login-container {
+    
+    background-color: red;
+    width: 90vmin;
+    height:100vmin;
+}
+
+.login-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 50px;
+}
