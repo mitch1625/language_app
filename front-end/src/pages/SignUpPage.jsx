@@ -1,9 +1,10 @@
 import { api } from "../utilities";
 import Row from "react-bootstrap/esm/Row"
 import { useState, useEffect } from "react"
-import { useOutletContext } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Button from 'react-bootstrap/Button'
 
 const SignUpPage = () => {
     const [email, setEmail] = useState("")
@@ -13,7 +14,7 @@ const SignUpPage = () => {
     const [targLang, setTargLang] = useState("")
     const [languageList, setLanguageList] = useState([])
     const navigate = useNavigate()
-    const {user, setUser} = useOutletContext()
+
 
     const createUser = async(e) => {
         e.preventDefault()
@@ -34,12 +35,12 @@ const SignUpPage = () => {
                 setUser(response.data.email);
                 localStorage.setItem("token", response.data.token);
                 api.defaults.headers.common[
-                  "Authorization"
+                "Authorization"
                 ] = `Token ${response.data.token}`;
                 navigate("/");
-              } else {
+            } else {
                 alert("Something Went wrong");
-              }
+            }
             };
 
     const getLanguages = async() => {
@@ -69,65 +70,57 @@ const SignUpPage = () => {
         }
     }
 
-
     useEffect(()=>{
         getLanguages()
     },[])
+
     return (
-        <>
-        This is the sign up page.
-        <form onSubmit={(e) =>createUser(e)}>
-            <h2>Sign Up</h2>
-            <div>
-                Email:
-                <input 
-                    type='text'
-                    placeholder=""
-                    onChange={(e)=>setEmail(e.target.value)}
-                />
-            </div>
-            <div>
-                Password:
-                <input
-                type="password"
-                name="password"
-                onChange={(e)=>setPassword(e.target.value)}
-                />
-            </div>
-            <div>
-                Display Name:
-                <input
-                    type='text'
-                    placeholder=""
-                    value={displayName}
-                    onChange={(e)=>setDisplayName(e.target.value)}
-                />
-            </div>
-            <div>
-                Native Language:
-                <select
-                onChange={(e)=>getNatLanguage(e.target.value)}
-                // value={natLang}
-                >
-                    {languageList.map((lang)=> (
-                        <option key={lang.value}>{lang[1]}</option>
-                    ))}
-                </select>
-            </div>
-            <div>
-                Target Language:
-                <select
-                onChange={(e)=>getTargLanguage(e.target.value)}
-                >
-                    {languageList.map((lang)=> (
-                        <option key={lang.value}>{lang[1]}</option>
-                    ))}
-                </select>
-            </div>
-            <input type="submit" value="Create Account" />
-        </form>
-        <button onClick={()=>console.log(natLang)}>CONSOLE LOG BUTTON</button>
-        </>
+    <>
+    This is the sign up page.
+    <Form onSubmit={(e) =>createUser(e)}>
+        <FloatingLabel
+            controlId="floatingInput"
+            label="Email Address"
+            className="mb-3"
+        >
+            <Form.Control type="email" placeholder="name@example.com" 
+            onChange={(e)=>setEmail(e.target.value)}/>
+        </FloatingLabel>
+        
+        <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
+            <Form.Control type="password" placeholder="Password" 
+            onChange={(e)=>setPassword(e.target.value)}/>
+        </FloatingLabel>
+
+        <FloatingLabel
+            controlId="floatingInput"
+            label="Display Name"
+            className="mb-3"
+        >
+            <Form.Control type="dispalyname" placeholder="Enter a display name" 
+              onChange={(e)=>setDisplayName(e.target.value)}/>
+        </FloatingLabel>
+
+        <Form.Select aria-label="Default select example" className="mb-3"
+        onChange={(e)=>getNatLanguage(e.target.value)}
+        as="select">
+            <option>Select Your Native Language</option>
+            {languageList.map((lang,idx)=> (
+            <option key={idx}>{lang[1]}</option>
+            ))}
+        </Form.Select>
+
+        <Form.Select aria-label="Default select example" className="mb-3"
+        onChange={(e)=>getTargLanguage(e.target.value)}
+        as="select">
+            <option>Select Your Target Language</option>
+            {languageList.map((lang,idx)=> (
+            <option key={idx}>{lang[1]}</option>
+            ))}
+        </Form.Select>
+        <Button type="submit" value="Create Account">Create Account</Button>
+    </Form>
+    </>
     )
 }
 
