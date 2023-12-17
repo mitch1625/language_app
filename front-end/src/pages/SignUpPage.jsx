@@ -122,7 +122,9 @@ const SignUpPage = () => {
             <option key={idx}>{lang[1]}</option>
             ))}
         </Form.Select>
-        <Button id='signin-button' style={{backgroundColor:'dimgrey'}} type="submit" value="Create Account">Create Account</Button>
+        <Button id='signup-button' style={{backgroundColor:'dimgrey'}} variant="dimgrey" size="lg" type="submit" active value="Create Account">
+            Create Account
+        </Button>
     </Form>
     </>
     )

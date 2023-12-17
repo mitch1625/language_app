@@ -16,10 +16,10 @@ const UserCheck = () => {
         </div>
             </div>
             <div id='welcome-button-box'>
-            <Button className='welcome-buttons' variant="primary" size="lg" active onClick={()=>navigate("/login/")}>
+            <Button className='welcome-buttons' style={{backgroundColor:'#D5386B'}} variant="dimgrey" size="lg" active onClick={()=>navigate("/login/")}>
                   Login
              </Button>{' '}
-             <Button  style={{backgroundColor:'dimgrey'}} className='welcome-buttons' variant="primary" size="lg" active onClick={()=>navigate("/join/")}>
+             <Button  style={{backgroundColor:'dimgrey'}} className='welcome-buttons' variant="dimgrey" size="lg" active onClick={()=>navigate("/join/")}>
                 Create Account
             </Button>{' '}
             </div>

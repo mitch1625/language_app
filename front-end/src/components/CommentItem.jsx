@@ -55,7 +55,7 @@ return (
     onSubmit={(e)=>(createPost(e))}>
       <Row>
         <Col>
-          <Form.Control placeholder="Enter a comment"
+          <Form.Control className='form-preview-text' placeholder="Enter a comment"
             onMouseEnter={()=> setPostId(id)}
             onChange={(e)=>setCommentText(e.target.value)}>
           </Form.Control>
