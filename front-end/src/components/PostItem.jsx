@@ -58,7 +58,7 @@ export const PostItem = () => {
 
     useEffect(()=>{
         getAllPosts();
-    },[])
+    },[user])
 
 
     const onClickHandler = () => {

@@ -1,18 +1,50 @@
-    /* #root {
-        display: flex;
-        justify-content: center;
-    } */
+    #root {
 
-#login-container {
-    
-    background-color: red;
-    width: 90vmin;
-    height:100vmin;
+    }
+
+#welcome-banner {
+    display: block;
+    height:30vh;
+    width: auto;
+    /* position: relative; */
+    text-align: center;    
 }
 
-.login-box{
+
+#login-container, .form-field {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 42vw;
+    height: 25vh;
+    padding: 12px;
+}
+
+.form-field {
+    flex-direction: column;
+    top:50%;
+}
+
+#welcome-button-box, #loginbox {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 50px;
+    justify-content: space-evenly;
 }
+
+#login-text{
+    width: 300px;
+    position: relative;
+}
+
+#login-button, #signin-button{
+    position: relative;
+    width: 25vw;
+    left: 20%;
+}
+
