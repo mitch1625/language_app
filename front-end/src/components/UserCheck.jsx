@@ -5,6 +5,7 @@ const UserCheck = () => {
     const navigate = useNavigate()
     return(
         <>
+        <div style={{height:'100vh'}}>
         <div style={{display:'flex', justifyContent:'center'}}>
         <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
         </div>
@@ -23,6 +24,7 @@ const UserCheck = () => {
                 Create Account
             </Button>{' '}
             </div>
+        </div>
         </div>
         </>
     )

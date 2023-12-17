@@ -35,6 +35,7 @@ const LoginPage = () => {
 
     return (
     <>
+    <div style={{height:'100vh'}}>
     <div style={{display:'flex', justifyContent:'center'}}>
         <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
     </div>
@@ -64,6 +65,7 @@ const LoginPage = () => {
       </div>
     <Button id='login-button' active style={{backgroundColor:'#D5386B', color:'#EDF5E1'}} variant="dimgrey" type="submit" size='lg'>Login</Button>
     </Form>
+    </div>
     </>
     )
 }

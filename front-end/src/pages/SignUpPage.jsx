@@ -77,6 +77,7 @@ const SignUpPage = () => {
 
     return (
     <>
+    <div style={{height:'100vh'}}>
     <div style={{display:'flex', justifyContent:'center'}}>
         <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
     </div>
@@ -126,6 +127,7 @@ const SignUpPage = () => {
             Create Account
         </Button>
     </Form>
+    </div>
     </>
     )
 }

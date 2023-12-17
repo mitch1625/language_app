@@ -21,7 +21,7 @@ const NavBar = ( { user, setUser } ) => {
     <Navbar className="bg-body-tertiary">
       <Container fluid>
         <Link to="/" style={{textDecoration:'none', color:'black'}}>Tiki Taka</Link>
-        <NavDropdown title="Settings" id="navbarScrollingDropdown">
+        <NavDropdown title="Settings" style={{color:'black'}} id="navbarScrollingDropdown">
               <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to="settings/update-email/">Update Email</Link>
                 </NavDropdown.Item>
