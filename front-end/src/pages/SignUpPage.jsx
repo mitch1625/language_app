@@ -1,7 +1,7 @@
 import { api } from "../utilities";
 import Row from "react-bootstrap/esm/Row"
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button'
@@ -14,6 +14,7 @@ const SignUpPage = () => {
     const [targLang, setTargLang] = useState("")
     const [languageList, setLanguageList] = useState([])
     const navigate = useNavigate()
+    const {user, setUser} = useOutletContext()
 
 
     const createUser = async(e) => {
