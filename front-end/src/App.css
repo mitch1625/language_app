@@ -17,7 +17,6 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    /* background-color: red; */
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -26,7 +25,7 @@
     padding: 12px;
 }
 
-.form-field {
+.form-field{
     flex-direction: column;
     top:50%;
 }
@@ -42,9 +41,16 @@
     position: relative;
 }
 
-#login-button, #signin-button{
+#login-button, #signin-button, .submit-button{
     position: relative;
     width: 25vw;
     left: 20%;
 }
 
+.comment-component {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+}

@@ -16,7 +16,7 @@ export const PostItem = () => {
 
     let token = localStorage.getItem("token")
 
-    const getAllPosts = async() => {
+    const getFilteredPosts = async() => {
         axios.defaults.headers.common["Authorization"] = `Token ${token}`
         let response = await axios
             .get("http://127.0.0.1:8000/api/v1/posts/filtered/")
@@ -57,7 +57,7 @@ export const PostItem = () => {
 
 
     useEffect(()=>{
-        getAllPosts();
+        getFilteredPosts();
     },[user])
 
 
@@ -72,7 +72,8 @@ export const PostItem = () => {
         <ul>
         {posts.map((post) => (
             
-            <Card key={post.id} id={post.id} style={{ width: '18rem', marginBottom:'15px'}}
+            <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
+            paddingLeft:'30px', paddingBottom:'10px'}}
                 onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>
                 <Card.Title>{post.poster[0]}</Card.Title>
