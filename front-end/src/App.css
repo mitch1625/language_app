@@ -47,7 +47,7 @@
     left: 20%;
 }
 
-.comment-component {
+.comment-component, #post-component{
     display:flex;
     flex-direction: column;
     justify-content: center;
