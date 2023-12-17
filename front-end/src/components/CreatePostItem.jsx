@@ -29,26 +29,31 @@ const CreatePostItem = () => {
 
     return (
         <>
+        <div className='comment-component'>
             <Button variant="primary"
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
-            aria-expanded={open}>
-                Create Post
+            aria-expanded={open}
+            >
+                Write A Post
             </Button>{' '}
             <Collapse in={open}>
             <Form
              onSubmit={(e)=>addPost(e)}
              >
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"
+            <Form.Group className='comment-component'  controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Enter Post Content</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={(e)=>setPostContent(e.target.value)}/>
-              <Button type='submit' value="create"
-              onClick={()=>console.log(user)}
-              >Submit</Button>
+              <Form.Control style={{resize:'none', width:'50vw'}} as="textarea" rows={7} 
+              onChange={(e)=>setPostContent(e.target.value)}
+              placeholder='Write a post'
+              />
+            <Button type='submit' value="create"
+            style={{marginTop:'10px', alignSelf:'flex-end'}}
+            >Submit</Button>
             </Form.Group>
             </Form>
             </Collapse>
+          </div>
         </>
     )
 }

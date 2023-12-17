@@ -9,7 +9,7 @@ from rest_framework.status import (
 )
 from collections import ChainMap
 
-class All_posts(UserPermissions):
+class Filtered_Post(UserPermissions):
     def get(self, request):
         # posts = PostSerializer(Post.objects.order_by('id'), many=True)
 

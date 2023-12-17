@@ -32,11 +32,13 @@ const UpdateEmailItem = () => {
     
     return (
         <>
+      <div  className="form-field">
+        <h1 style={{alignSelf:'center'}}>Enter New Email Information</h1>
       <FloatingLabel
         controlId="floatingInput"
         label="Enter New Email Address"
         className="mb-3"
-      >
+        >
         <Form.Control type="email" placeholder="name@example.com" 
         onChange={(e)=>setNewEmail(e.target.value.toLowerCase())}/>
       </FloatingLabel>
@@ -44,11 +46,12 @@ const UpdateEmailItem = () => {
         controlId="floatingInput"
         label="Verify New Email Address"
         className="mb-3"
-      >
+        >
         <Form.Control type="email" placeholder="name@example.com" 
         onChange={(e)=>setCompareEmail(e.target.value.toLowerCase())}/>
       </FloatingLabel>
-      <Button type="submit" onClick={()=>updateEmail()}>Submit</Button>
+      <Button className="submit-button" type="submit" onClick={()=>updateEmail()}>Submit</Button>
+        </div>
       </>
     )
 }

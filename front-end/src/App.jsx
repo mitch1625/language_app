@@ -29,7 +29,6 @@ function App() {
     {user ?
       <>
         <NavBar user={user} setUser={setUser}/>
-        <h1> Welcome {user ? user : null}</h1>
       </>
       :
       null

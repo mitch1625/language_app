@@ -62,7 +62,7 @@ const LoginPage = () => {
         />
       </FloatingLabel>
       </div>
-    <Button id='login-button' variant="secondary" type="submit">Login</Button>
+    <Button id='login-button' variant="primary" type="submit">Login</Button>
     </Form>
     </>
     )

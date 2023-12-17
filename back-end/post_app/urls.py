@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import All_posts, Create_post
+from .views import Filtered_Post, Create_post
 
 
 urlpatterns = [
-    path('filtered/', All_posts.as_view(), name="all_posts"),
+    path('filtered/', Filtered_Post.as_view(), name="all_posts"),
     path('createpost/', Create_post.as_view(), name='create_post')
 ]
