@@ -22,7 +22,7 @@ function App() {
 
   useEffect(()=>{
     getInfo()
-  },[])
+  },[user])
   
   return (
     <>

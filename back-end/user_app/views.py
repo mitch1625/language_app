@@ -7,11 +7,13 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_400_BAD_REQUEST,
-    HTTP_404_NOT_FOUND
+    HTTP_404_NOT_FOUND,
+    HTTP_200_OK
 )
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import get_object_or_404
 
 
 class SignUp(APIView):
@@ -69,17 +71,10 @@ class Language_list(APIView):
     
 
 class Update_email(UserPermissions):
-    def get_user(self, request):
-        try:
-            return User.objects.get(id=request.user.id)
-        except:
-            raise HTTP_404_NOT_FOUND
-
-    # def put(self,request):
-    #     user = self.get_user(request.user.id)
-    #     user['email'] = request.data
-    #     user_ser = UserSerializer(user, data=request.data, partial=True)
-    #     print(user_ser.data)
-        
-
-    #     return Response('fwa')
+    def put(self,request):
+        user = get_object_or_404(User, id=request.user.id)
+        ser_user = UserSerializer(user, data=request.data, partial=True)
+        if ser_user.is_valid():
+            ser_user.save()
+            return Response(ser_user.data, status=HTTP_200_OK)
+        return Response(status=HTTP_400_BAD_REQUEST)

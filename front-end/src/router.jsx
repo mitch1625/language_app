@@ -4,6 +4,7 @@ import { Home } from "./pages/Home"
 import SignUpPage from "./pages/SignUpPage"
 import LoginPage from "./pages/LoginPage"
 import SettingsPage from "./pages/SettingsPage"
+import UpdateEmailItem from "./components/UpdateEmailItem"
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "settings/",
-                element: <SettingsPage/>
+                element: <SettingsPage/>,
+            },
+            {
+                path:"settings/update-email/",
+                element: <UpdateEmailItem/>
             }
         ]
     }

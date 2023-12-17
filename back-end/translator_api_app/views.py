@@ -3,10 +3,13 @@ import requests, uuid, json
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from language_proj.settings import env
+from .throttles import TierThrottle
+from rest_framework.decorators import throttle_classes
 
-
+@throttle_classes([TierThrottle])
 class Translator(APIView):
-    def get(self, request):
+    # class_scope = [TierThrottle]
+    def get(self, request, *args, **kwargs):
         # print(request.user.native_language)
         # Add your key and endpoint
         key = env.get("TRANSLATOR_KEY")
