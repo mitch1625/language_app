@@ -3,6 +3,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { api } from '../utilities';
 import Button from "react-bootstrap/esm/Button";
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/Nav';
+
 
 const NavBar = ( { user, setUser } ) => {
   const logout = async() =>{
@@ -14,11 +17,22 @@ const NavBar = ( { user, setUser } ) => {
     }
   }
   return (
+
     <Navbar className="bg-body-tertiary">
-      <Container>
-        <Link to="/">Home</Link>
-        <Link to="/settings/">Settings</Link>
-        <Link onClick={logout}>Logout</Link>
+      <Container fluid>
+        <Link to="/" style={{textDecoration:'none', color:'black'}}>Tiki Taka</Link>
+        <NavDropdown title="Settings" id="navbarScrollingDropdown">
+              <NavDropdown.Item>
+                <Link style={{textDecoration:'none', color:'black'}} to="settings/update-email/">Update Email</Link>
+                </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Update Password
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                SOME OTHER FUNCTION
+              </NavDropdown.Item>
+        </NavDropdown>
+        <Link onClick={logout} style={{color:'black', textDecoration:"none"}}>Logout</Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

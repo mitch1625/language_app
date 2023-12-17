@@ -68,13 +68,14 @@ export const PostItem = () => {
 
     return(
         <>
+        <div id='post-component'>
         {posts.length != 0 ? 
-        <ul>
+        <ul style={{marginTop:'0px', listStyle:'none'}}>
         {posts.map((post) => (
             
             <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
             paddingLeft:'30px', paddingBottom:'10px'}}
-                onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
+            onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>
                 <Card.Title>{post.poster[0]}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
@@ -82,7 +83,7 @@ export const PostItem = () => {
                 {post.post_content}
                     {translation.map((item) => (
                         item['postId'] === post.id ? item['text']: null
-                    ))}
+                        ))}
                 </Card.Text>
             </Card.Body>
             <Button style={{width:'100px'}}
@@ -97,6 +98,7 @@ export const PostItem = () => {
         </ul>
         :
         "No posts to show for your learning goals"}
+        </div>
         </>
     )
 }
