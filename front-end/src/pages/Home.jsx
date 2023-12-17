@@ -6,6 +6,7 @@ import CreatePostItem from "../components/CreatePostItem"
 
 export const Home = () => {
     const {user} = useOutletContext()
+
     return (
         <>
         {user ? 

@@ -76,8 +76,11 @@ const SignUpPage = () => {
 
     return (
     <>
-    This is the sign up page.
-    <Form onSubmit={(e) =>createUser(e)}>
+    <div style={{display:'flex', justifyContent:'center'}}>
+        <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
+    </div>
+    <h1 style={{textAlign: 'center', marginTop:'20px'}}>Tiki Taka</h1>
+    <Form className='form-field' onSubmit={(e) =>createUser(e)}>
         <FloatingLabel
             controlId="floatingInput"
             label="Email Address"
@@ -118,7 +121,7 @@ const SignUpPage = () => {
             <option key={idx}>{lang[1]}</option>
             ))}
         </Form.Select>
-        <Button type="submit" value="Create Account">Create Account</Button>
+        <Button id='signin-button' type="submit" value="Create Account">Create Account</Button>
     </Form>
     </>
     )

@@ -35,7 +35,11 @@ const LoginPage = () => {
 
     return (
     <>
-    <Form onSubmit={(e) => login(e)}>
+    <div style={{display:'flex', justifyContent:'center'}}>
+        <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
+    </div>
+    <h1 style={{textAlign: 'center', marginTop:'20px'}}>Tiki Taka</h1>
+    <Form onSubmit={(e) => login(e)} className='form-field'>
         <div id='loginbox'>
       <FloatingLabel
         controlId="floatingInput"
@@ -58,8 +62,7 @@ const LoginPage = () => {
         />
       </FloatingLabel>
       </div>
-    <Button variant="secondary" type="submit">Login</Button>
-    <button onClick={()=>{console.log(password)}}>CONSOLE LOG BUTTON</button>
+    <Button id='login-button' variant="secondary" type="submit">Login</Button>
     </Form>
     </>
     )
