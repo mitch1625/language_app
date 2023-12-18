@@ -1,4 +1,4 @@
-from requests_oauthlib import OAuth1
+from requests_oauthlib import OAuth2
 import requests, uuid, json
 from rest_framework.response import Response
 from rest_framework.views import APIView

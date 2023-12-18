@@ -22,5 +22,6 @@ urlpatterns = [
     path('api/v1/users/', include("user_app.urls")),
     path('api/v1/posts/', include("post_app.urls")),
     path('api/v1/comments/', include("comment_app.urls")),
-    path('api/v1/translate/', include("translator_api_app.urls"))#THIS MIGHT BREAK CALL
+    path('api/v1/translate/', include("translator_api_app.urls")),
+    path('api/v1/subscribe/', include('payment_api.urls')),
 ]
