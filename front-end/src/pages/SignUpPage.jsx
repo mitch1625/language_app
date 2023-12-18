@@ -32,6 +32,7 @@ const SignUpPage = () => {
             .catch((err)=>{
                 console.log(err)
             })
+            console.log(response)
             if (response.status === 201){
                 setUser(response.data.email);
                 localStorage.setItem("token", response.data.token);

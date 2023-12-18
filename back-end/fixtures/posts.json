@@ -1,34 +1,137 @@
 [
-    {
-        "model": "post_app.post",
-        "pk": 1,
-        "fields": {
-            "poster": 1,
-            "post_content" : "Woohoo! Its my first post!"
-        }
-    },
-    {
-        "model": "post_app.post",
-        "pk": 2,
-        "fields" : {
-            "poster": 3,
-            "post_content": "I need some help with language!"
-        }
-    },
-    {
-        "model": "post_app.post",
-        "pk": 3,
-        "fields" : {
-            "poster": 4,
-            "post_content": "TEST TEST TEST"
-        }
-    },
-    {
-        "model": "post_app.post",
-        "pk": 4,
-        "fields" : {
-            "poster": 5,
-            "post_content": "MORE TESTING TEST"
-        }
+  {
+    "model": "post_app.post",
+    "pk": 1,
+    "fields": {
+      "poster": 1,
+      "post_content": "Learning a new language opens up new opportunities. It's a challenging but rewarding journey that enhances both communication skills and cultural understanding. I'm excited to share my language learning experiences with everyone!",
+      "date_created": "2023-03-01T12:00:00Z"
     }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 2,
+    "fields": {
+      "poster": 2,
+      "post_content": "Practicing English every day helps me improve my vocabulary and grammar. I'm looking for language exchange partners to practice speaking. Let's learn together!",
+      "date_created": "2023-03-02T14:30:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 3,
+    "fields": {
+      "poster": 3,
+      "post_content": "English is not just a language for me; it's a gateway to a world of literature, music, and films. Let me know your favorite English books or movies, and let's discuss them!",
+      "date_created": "2023-03-03T16:45:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 4,
+    "fields": {
+      "poster": 4,
+      "post_content": "Exploring the nuances of the English language is a fascinating journey. I'm particularly interested in idioms and expressions. Share your favorite English idioms with me!",
+      "date_created": "2023-03-04T18:00:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 5,
+    "fields": {
+      "poster": 5,
+      "post_content": "Being bilingual is like having a superpower! English has opened doors for me professionally and personally. Let's discuss the benefits of language proficiency!",
+      "date_created": "2023-03-05T20:15:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 11,
+    "fields": {
+      "poster": 11,
+      "post_content": "새로운 언어를 배우는 것은 정말 흥미로운 여정이에요. 다양한 표현과 문화를 이해하는 데 도움이 되고 있어요. 함께 언어 공부를 할 친구를 찾고 있어요!",
+      "date_created": "2023-03-11T08:45:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 12,
+    "fields": {
+      "poster": 12,
+      "post_content": "매일 한국어를 연습하면서 어휘와 문법을 향상시키고 있어요. 언어 교환 파트너를 찾고 있어요. 함께 언어를 연습해봐요!",
+      "date_created": "2023-03-12T10:15:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 13,
+    "fields": {
+      "poster": 13,
+      "post_content": "한국어는 아름다운 언어에요. 소설이나 시를 좋아하는데, 같이 좋아하는 작품이 있다면 나누고 싶어요. 추천해주시면 감사하겠어요!",
+      "date_created": "2023-03-13T11:30:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 14,
+    "fields": {
+      "poster": 14,
+      "post_content": "한국 문화에 대해 더 알고 싶어졌어요. 음식, 음악, 영화 등 어떤 것이든 나누어 보고 싶어요. 함께 한국 문화를 탐험해봐요!",
+      "date_created": "2023-03-14T12:45:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 15,
+    "fields": {
+      "poster": 15,
+      "post_content": "한국어를 배우는 동안 멋진 친구들을 만나고 있어요. 함께 언어를 교환하며 즐거운 시간을 보내고 싶어요. 언제든지 연락주세요!",
+      "date_created": "2023-03-15T14:00:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 21,
+    "fields": {
+      "poster": 21,
+      "post_content": "Aprender un nuevo idioma es una experiencia emocionante. Mejora nuestras habilidades de comunicación y amplía nuestra comprensión cultural. Estoy aquí para compartir mis experiencias y aprender juntos.",
+      "date_created": "2023-03-21T12:30:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 22,
+    "fields": {
+      "poster": 22,
+      "post_content": "Practicar español todos los días me ayuda a mejorar mi vocabulario y gramática. Busco compañeros de intercambio de idiomas para practicar la conversación. ¡Vamos a aprender juntos!",
+      "date_created": "2023-03-22T14:00:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 23,
+    "fields": {
+      "poster": 23,
+      "post_content": "El español es más que un idioma para mí; es un portal a un mundo de literatura, música y películas. Cuéntame tus libros o películas favoritas en español, ¡y hablemos de ellas!",
+      "date_created": "2023-03-23T16:15:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 24,
+    "fields": {
+      "poster": 24,
+      "post_content": "Explorar la riqueza del idioma español es fascinante. Estoy interesado en descubrir nuevas expresiones y modismos. ¡Comparte tus modismos favoritos en español conmigo!",
+      "date_created": "2023-03-24T18:30:00Z"
+    }
+  },
+  {
+    "model": "post_app.post",
+    "pk": 25,
+    "fields": {
+      "poster": 25,
+      "post_content": "La diversidad de la cultura hispana me inspira. Desde la música hasta la comida, hay tanto que explorar y disfrutar. ¿Cuáles son tus aspectos favoritos de la cultura hispana?",
+      "date_created": "2023-03-25T20:45:00Z"
+    }
+  }
 ]
