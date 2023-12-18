@@ -90,11 +90,11 @@ export const PostItem = () => {
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
                 <Card.Text style={{color:'black', fontSize:'24px'}}>
                 {post.post_content}
-                <div>
-                    {translation.map((item) => (
-                        item['postId'] === post.id ? item['text']: null
-                        ))}
-                </div>
+                </Card.Text>
+                <Card.Text style={{color:'black', fontSize:'24px', marginTop:'-16px'}}>
+                {translation.map((item) => (
+                    item['postId'] === post.id ? item['text']: null
+                    ))}
                 </Card.Text>
             </Card.Body>
             <CommentItem id={post.id}/>
