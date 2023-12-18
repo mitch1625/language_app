@@ -1,20 +1,137 @@
 [
     {
-        "model": "comment_app.comment",
-        "pk": 1,
-        "fields": {
-            "post_id": 1,
-            "content" : "Hi Jon!",
-            "comment_user" : 3
-        }
+      "model": "comment_app.comment",
+      "pk": 1,
+      "fields": {
+        "post": 1,
+        "content": "Great post! I totally agree that learning a new language is a rewarding experience.",
+        "comment_user": 6
+      }
     },
     {
-        "model": "comment_app.comment",
-        "pk": 2,
-        "fields": {
-            "post_id": 2,
-            "content" : "I can help you!",
-            "comment_user" : 1
-        }
+      "model": "comment_app.comment",
+      "pk": 2,
+      "fields": {
+        "post": 2,
+        "content": "Your dedication to practicing English every day is admirable. Keep up the good work!",
+        "comment_user": 7
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 3,
+      "fields": {
+        "post": 3,
+        "content": "I'm also a fan of English literature and movies. Let's exchange recommendations!",
+        "comment_user": 8
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 4,
+      "fields": {
+        "post": 4,
+        "content": "Exploring idioms is a fun way to dive deeper into a language. What are some of your favorites?",
+        "comment_user": 9
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 5,
+      "fields": {
+        "post": 5,
+        "content": "I completely agree! Bilingualism is indeed a superpower. Let's celebrate the joys of language proficiency!",
+        "comment_user": 10
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 6,
+      "fields": {
+        "post": 11,
+        "content": "새로운 언어를 배우는 건 정말 흥미로운 일이에요. 함께 언어 교환을 해보면 좋을 것 같아요!",
+        "comment_user": 16
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 7,
+      "fields": {
+        "post": 12,
+        "content": "매일 한국어를 연습하면서 어휘와 문법을 향상시키는 것은 훌륭한 노력이에요. 함께 언어 교환을 할까요?",
+        "comment_user": 17
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 8,
+      "fields": {
+        "post": 13,
+        "content": "한국어 소설과 시에 관심이 있어요. 좋아하는 작품이 있다면 나눠주세요!",
+        "comment_user": 18
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 9,
+      "fields": {
+        "post": 14,
+        "content": "한국 문화를 탐험하고 싶어졌어요. 같이 음식, 음악, 영화 등을 나눠보면 어떨까요?",
+        "comment_user": 19
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 10,
+      "fields": {
+        "post": 15,
+        "content": "한국어를 배우면서 멋진 친구들을 만나고 있어요. 함께 언어 교환을 하며 즐거운 시간을 보내고 싶어요.",
+        "comment_user": 20
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 11,
+      "fields": {
+        "post": 21,
+        "content": "Aprender un nuevo idioma es una experiencia emocionante. ¡Estoy aquí para aprender y compartir!",
+        "comment_user": 26
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 12,
+      "fields": {
+        "post": 22,
+        "content": "Practicar español todos los días es clave para mejorar. ¡Vamos a practicar juntos!",
+        "comment_user": 27
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 13,
+      "fields": {
+        "post": 23,
+        "content": "El español abre puertas a un mundo fascinante. Cuéntame tus recomendaciones de libros o películas en español.",
+        "comment_user": 28
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 14,
+      "fields": {
+        "post": 24,
+        "content": "Explorar la riqueza del idioma español es fascinante. ¿Tienes algún modismo español favorito?",
+        "comment_user": 29
+      }
+    },
+    {
+      "model": "comment_app.comment",
+      "pk": 15,
+      "fields": {
+        "post": 25,
+        "content": "La diversidad de la cultura hispana es increíble. ¿Cuáles son tus aspectos favoritos?",
+        "comment_user": 30
+      }
     }
-]
+  ]

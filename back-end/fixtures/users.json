@@ -1,63 +1,392 @@
 [
     {
-        "model": "user_app.user",
-        "pk": 1,
-        "fields" : {
-            "email": "jon@mail.com",
-            "password": 123,
-            "username": "jon@mail.com",
-            "native_language": "en",
-            "target_language": "es",
-            "display_name": "Jony"
-        }
-    },
-    {
-        "model": "user_app.user",
-        "pk": 2,
-        "fields" : {
-            "email": "barb@mail.com",
-            "password": 123,
-            "username": "barb@mail.com",
-            "native_language": "es",
-            "target_language": "en",
-            "display_name": "ItsBarb"
-        }
-    },
-    {
-        "model": "user_app.user",
-        "pk": 3,
-        "fields" : {
-            "email": "kevinn@mail.com",
-            "password": 123,
-            "username": "kevin@mail.com",
-            "native_language": "en",
-            "target_language": "ko",
-            "display_name": "BigKev"
-        }
-    },
-    {
-            "model": "user_app.user",
-            "pk": 19,
-            "fields": {
-              "email": "example@example.com",
-              "username": "example@example.com",
-              "password": "your_password",
-              "display_name": "RandomDisplay",
-              "native_language": "en",
-              "target_language": "ko"
-        }
-    },
-    {
-        "model": "user_app.user",
-        "pk": 20,
-        "fields": {
-          "email": "testuser@example.com",
-          "username": "testuser@example.com",
-          "password": "securepass",
-          "display_name": "TestUser123",
-          "native_language": "en",
-          "target_language": "ko"
-        }
+      "model": "user_app.user",
+      "pk": 1,
+      "fields": {
+        "username": "user1@example.com",
+        "email": "user1@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "ko",
+        "display_name": "UserOne",
+        "premium_account": false
       }
-      
+    },
+    {
+      "model": "user_app.user",
+      "pk": 2,
+      "fields": {
+        "username": "user2@example.com",
+        "email": "user2@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "es",
+        "display_name": "UserTwo",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 3,
+      "fields": {
+        "username": "user3@example.com",
+        "email": "user3@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "ko",
+        "display_name": "UserThree",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 4,
+      "fields": {
+        "username": "user4@example.com",
+        "email": "user4@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "es",
+        "display_name": "UserFour",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 5,
+      "fields": {
+        "username": "user5@example.com",
+        "email": "user5@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "ko",
+        "display_name": "UserFive",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 6,
+      "fields": {
+        "username": "user6@example.com",
+        "email": "user6@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "es",
+        "display_name": "UserSix",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 7,
+      "fields": {
+        "username": "user7@example.com",
+        "email": "user7@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "ko",
+        "display_name": "UserSeven",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 8,
+      "fields": {
+        "username": "user8@example.com",
+        "email": "user8@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "es",
+        "display_name": "UserEight",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 9,
+      "fields": {
+        "username": "user9@example.com",
+        "email": "user9@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "ko",
+        "display_name": "UserNine",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 10,
+      "fields": {
+        "username": "user10@example.com",
+        "email": "user10@example.com",
+        "password": "hashed_password",
+        "native_language": "en",
+        "target_language": "es",
+        "display_name": "UserTen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 11,
+      "fields": {
+        "username": "user11@example.com",
+        "email": "user11@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "en",
+        "display_name": "UserEleven",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 12,
+      "fields": {
+        "username": "user12@example.com",
+        "email": "user12@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "es",
+        "display_name": "UserTwelve",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 13,
+      "fields": {
+        "username": "user13@example.com",
+        "email": "user13@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "en",
+        "display_name": "UserThirteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 14,
+      "fields": {
+        "username": "user14@example.com",
+        "email": "user14@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "es",
+        "display_name": "UserFourteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 15,
+      "fields": {
+        "username": "user15@example.com",
+        "email": "user15@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "en",
+        "display_name": "UserFifteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 16,
+      "fields": {
+        "username": "user16@example.com",
+        "email": "user16@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "es",
+        "display_name": "UserSixteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 17,
+      "fields": {
+        "username": "user17@example.com",
+        "email": "user17@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "en",
+        "display_name": "UserSeventeen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 18,
+      "fields": {
+        "username": "user18@example.com",
+        "email": "user18@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "es",
+        "display_name": "UserEighteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 19,
+      "fields": {
+        "username": "user19@example.com",
+        "email": "user19@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "en",
+        "display_name": "UserNineteen",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 20,
+      "fields": {
+        "username": "user20@example.com",
+        "email": "user20@example.com",
+        "password": "hashed_password",
+        "native_language": "ko",
+        "target_language": "es",
+        "display_name": "UserTwenty",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 21,
+      "fields": {
+        "username": "user21@example.com",
+        "email": "user21@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "en",
+        "display_name": "UserTwentyOne",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 22,
+      "fields": {
+        "username": "user22@example.com",
+        "email": "user22@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "ko",
+        "display_name": "UserTwentyTwo",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 23,
+      "fields": {
+        "username": "user23@example.com",
+        "email": "user23@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "en",
+        "display_name": "UserTwentyThree",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 24,
+      "fields": {
+        "username": "user24@example.com",
+        "email": "user24@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "ko",
+        "display_name": "UserTwentyFour",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 25,
+      "fields": {
+        "username": "user25@example.com",
+        "email": "user25@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "en",
+        "display_name": "UserTwentyFive",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 26,
+      "fields": {
+        "username": "user26@example.com",
+        "email": "user26@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "ko",
+        "display_name": "UserTwentySix",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 27,
+      "fields": {
+        "username": "user27@example.com",
+        "email": "user27@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "en",
+        "display_name": "UserTwentySeven",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 28,
+      "fields": {
+        "username": "user28@example.com",
+        "email": "user28@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "ko",
+        "display_name": "UserTwentyEight",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 29,
+      "fields": {
+        "username": "user29@example.com",
+        "email": "user29@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "en",
+        "display_name": "UserTwentyNine",
+        "premium_account": false
+      }
+    },
+    {
+      "model": "user_app.user",
+      "pk": 30,
+      "fields": {
+        "username": "user30@example.com",
+        "email": "user30@example.com",
+        "password": "hashed_password",
+        "native_language": "es",
+        "target_language": "ko",
+        "display_name": "UserThirty",
+        "premium_account": false
+      }
+    }
 ]
