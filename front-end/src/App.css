@@ -1,6 +1,17 @@
-    #root {
+#root {
+    /* background-color: #05386b; */
+    background-color: #379683;
+    height: 100%;
+    color:#EDF5E1
+}
 
-    }
+html {
+    background-color: #379683;
+}
+
+.mb-3{
+    color:black
+}
 
 #welcome-banner {
     display: block;
@@ -41,7 +52,7 @@
     position: relative;
 }
 
-#login-button, #signin-button, .submit-button{
+#login-button, #signup-button, .submit-button{
     position: relative;
     width: 25vw;
     left: 20%;

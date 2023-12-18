@@ -72,26 +72,29 @@ export const PostItem = () => {
         {posts.length != 0 ? 
         <ul style={{marginTop:'0px', listStyle:'none'}}>
         {posts.map((post) => (
-            
             <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
-            paddingLeft:'30px', paddingBottom:'10px'}}
+            paddingLeft:'30px',paddingRight:'20px', paddingBottom:'10px', backgroundColor:'#EDF5E1',
+            color:'#05386B', borderRadius:25, border:'1px solid dimgrey'
+        }}
             onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>
-                <Card.Title>{post.poster[0]}</Card.Title>
+                <div style={{display:'flex', justifyContent:'space-between'}}>
+                <Card.Title style={{fontSize:'30px'}}>{post.poster[0]}</Card.Title>
+                <Button className='translate-button' style={{width:'50px', backgroundColor:'#EDF5E1', color:'black', border:'none'}} 
+                    onClick={()=>{
+                        onClickHandler(post)
+                    }}>
+                    <img src={"./src/assets/translate.png"} style={{height:'30px', width:'30px'}}/>
+                </Button>
+                </div>
                 <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
-                <Card.Text>
+                <Card.Text style={{color:'black', fontSize:'24px'}}>
                 {post.post_content}
                     {translation.map((item) => (
                         item['postId'] === post.id ? item['text']: null
                         ))}
                 </Card.Text>
             </Card.Body>
-            <Button style={{width:'100px'}}
-                onClick={()=>{
-                    onClickHandler(post)
-                }}>
-                Translate
-            </Button>
             <CommentItem id={post.id}/>
             </Card>
         ))}

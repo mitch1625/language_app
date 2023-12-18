@@ -30,7 +30,7 @@ const CreatePostItem = () => {
     return (
         <>
         <div className='comment-component'>
-            <Button variant="primary"
+            <Button style={{backgroundColor:'#379683', border:'black 1px solid', color:'#EDF5E1'}} variant="dimgrey" size="lg" active
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
             aria-expanded={open}
@@ -43,12 +43,12 @@ const CreatePostItem = () => {
              >
             <Form.Group className='comment-component'  controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Control style={{resize:'none', width:'50vw'}} as="textarea" rows={7} 
+              <Form.Control style={{resize:'none', width:'50vw', border:'2px solid dimgrey'}} as="textarea" rows={7} 
               onChange={(e)=>setPostContent(e.target.value)}
               placeholder='Write a post'
               />
             <Button type='submit' value="create"
-            style={{marginTop:'10px', alignSelf:'flex-end'}}
+            style={{marginTop:'10px', alignSelf:'flex-end', backgroundColor:'dimgrey', border:'1px solid black'}} 
             >Submit</Button>
             </Form.Group>
             </Form>

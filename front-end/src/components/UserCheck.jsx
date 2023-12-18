@@ -5,6 +5,7 @@ const UserCheck = () => {
     const navigate = useNavigate()
     return(
         <>
+        <div style={{height:'100vh'}}>
         <div style={{display:'flex', justifyContent:'center'}}>
         <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
         </div>
@@ -16,13 +17,14 @@ const UserCheck = () => {
         </div>
             </div>
             <div id='welcome-button-box'>
-            <Button className='welcome-buttons' variant="primary" size="lg" active onClick={()=>navigate("/login/")}>
+            <Button className='welcome-buttons' style={{backgroundColor:'#D5386B'}} variant="dimgrey" size="lg" active onClick={()=>navigate("/login/")}>
                   Login
              </Button>{' '}
-             <Button  style={{backgroundColor:'dimgrey'}} className='welcome-buttons' variant="primary" size="lg" active onClick={()=>navigate("/join/")}>
+             <Button  style={{backgroundColor:'dimgrey'}} className='welcome-buttons' variant="dimgrey" size="lg" active onClick={()=>navigate("/join/")}>
                 Create Account
             </Button>{' '}
             </div>
+        </div>
         </div>
         </>
     )

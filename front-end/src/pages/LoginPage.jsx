@@ -35,13 +35,14 @@ const LoginPage = () => {
 
     return (
     <>
+    <div style={{height:'100vh'}}>
     <div style={{display:'flex', justifyContent:'center'}}>
         <img id='welcome-banner' src="../src/assets/welcome-banner1.png"/>
     </div>
     <h1 style={{textAlign: 'center', marginTop:'20px'}}>Tiki Taka</h1>
     <Form onSubmit={(e) => login(e)} className='form-field'>
         <div id='loginbox'>
-      <FloatingLabel
+      <FloatingLabel 
         controlId="floatingInput"
         label="Email address"
         className="mb-3"
@@ -53,7 +54,7 @@ const LoginPage = () => {
         onChange={(e)=> setEmail(e.target.value)}
         />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingPassword" label="Password">
+      <FloatingLabel controlId="floatingPassword" label="Password" style={{color:'black'}}>
         <Form.Control 
         type="password" 
         placeholder="Password"
@@ -62,8 +63,9 @@ const LoginPage = () => {
         />
       </FloatingLabel>
       </div>
-    <Button id='login-button' variant="primary" type="submit">Login</Button>
+    <Button id='login-button' active style={{backgroundColor:'#D5386B', color:'#EDF5E1'}} variant="dimgrey" type="submit" size='lg'>Login</Button>
     </Form>
+    </div>
     </>
     )
 }

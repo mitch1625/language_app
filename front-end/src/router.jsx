@@ -5,6 +5,8 @@ import SignUpPage from "./pages/SignUpPage"
 import LoginPage from "./pages/LoginPage"
 import SettingsPage from "./pages/SettingsPage"
 import UpdateEmailItem from "./components/UpdateEmailItem"
+import PremiumPage from "./pages/PremiumPage"
+import UpdatePasswordItem from "./components/UpdatePasswordItem"
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
             {
                 path:"settings/update-email/",
                 element: <UpdateEmailItem/>
+            },
+            {
+                path:'settings/get-premium',
+                element: <PremiumPage/>
+            },
+            {
+                path:'settings/update-password',
+                element: <UpdatePasswordItem/>
             }
         ]
     }
