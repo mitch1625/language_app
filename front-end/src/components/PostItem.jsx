@@ -72,10 +72,9 @@ export const PostItem = () => {
         {posts.length != 0 ? 
         <ul style={{marginTop:'0px', listStyle:'none'}}>
         {posts.map((post) => (
-            
             <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
             paddingLeft:'30px',paddingRight:'20px', paddingBottom:'10px', backgroundColor:'#EDF5E1',
-            color:'#05386B', borderRadius:25
+            color:'#05386B', borderRadius:25, border:'1px solid dimgrey'
         }}
             onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
             <Card.Body>

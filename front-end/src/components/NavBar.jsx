@@ -25,15 +25,18 @@ const NavBar = ( { user, setUser } ) => {
               <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to="settings/update-email/">Update Email</Link>
                 </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Update Password
+              <NavDropdown.Item>
+                <Link style={{textDecoration:'none', color:'black'}} to='settings/update-password'>Update Password</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                SOME OTHER FUNCTION
+              <NavDropdown.Item>
+                <Link style={{textDecoration:'none', color:'black'}} to='settings/get-premium/'>
+                Get Premium
+                </Link>
               </NavDropdown.Item>
         </NavDropdown>
         <Link onClick={logout} style={{color:'black', textDecoration:"none"}}>Logout</Link>
         <Navbar.Toggle />
+
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             Logged in as: {user}
