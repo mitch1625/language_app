@@ -59,12 +59,12 @@ return (
             onMouseEnter={()=> setPostId(id)}
             onChange={(e)=>setCommentText(e.target.value)}>
           </Form.Control>
-          <div style={{marginTop:'5px', display:'flex', width:'50vw'}}>
-            <Button type='submit'>Submit</Button>
+          <div style={{marginTop:'5px', display:'flex', justifyContent:'space-between'}}>
             {renderComment.length  === 0 ? 
               null
               :
               <Button
+              style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
               onClick={() => setOpen(!open)}
               aria-controls="example-collapse-text"
               aria-expanded={open}
@@ -72,8 +72,9 @@ return (
                 View Comments
               </Button> 
           }
+            <Button type='submit'style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
+            >Submit Comment</Button>
           </div>
-          {/* Collapse Component */}
           <Collapse in={open}>
             <div className="comment-collapse">
               {renderComment.map((comment)=> (
