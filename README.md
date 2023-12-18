@@ -10,4 +10,4 @@ Welcome to Tiki Taka! This application allows users to write posts in their nati
 **User Authentication:** Secure user authentication system powered by Django ensures a personalized experience.
 
 **Technologies Used:**
-Django, React, Javascript, Bootstrap, CSS, 
+Django, React, Javascript, Bootstrap, CSS, Python
