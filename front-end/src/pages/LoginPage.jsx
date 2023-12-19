@@ -12,12 +12,18 @@ const LoginPage = () => {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const {user, setUser} = useOutletContext()
+    const [wrongCredential, setWrongCredential] = useState(false)
 
     const login = async(e) => {
       e.preventDefault()
       let response = await api.post("users/login/", {
         email: email,
         password : password
+      })
+      .catch((err)=>{
+        if (err.response.status===404){
+          setWrongCredential(true)
+        }
       })
       if (response.status === 200){
         setUser(response.data.email);
@@ -31,6 +37,9 @@ const LoginPage = () => {
       }
     };
 
+    // useEffect(()=>{
+    //   setWrongCredential(true)
+    // },[login()])
 
     return (
     <>
@@ -62,7 +71,14 @@ const LoginPage = () => {
         />
       </FloatingLabel>
       </div>
-    <Button id='login-button' active style={{backgroundColor:'#D5386B', color:'#EDF5E1'}} variant="dimgrey" type="submit" size='lg'>Login</Button>
+      <div style={{color:'#970E0E', fontWeight:'bold', fontSize:'25px', alignSelf:'center'}}>
+      {wrongCredential ? 
+      'Email or Password Incorrect.'
+      : 
+      null
+    }
+    </div>
+    <Button id='login-button' active style={{backgroundColor:'#D5386B', color:'#EDF5E1', marginTop:'20px'}} variant="dimgrey" type="submit" size='lg'>Login</Button>
     </Form>
     </div>
     </>
