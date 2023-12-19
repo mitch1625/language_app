@@ -33,6 +33,7 @@ export const PostItem = () => {
         }
         let response = await axios
             .post("http://127.0.0.1:8000/api/v1/translate/detect/", data)
+            console.log(response.status)
             setPosterLang(response.data)
             console.log(`DETECTED LANG:${response.data}`)
     }
@@ -46,7 +47,7 @@ export const PostItem = () => {
                     'from': posterLang,
                     'body': text
                 }
-            })
+            })    
             setTranslation([
                 ...translation,
                { postId: postId,

@@ -48,7 +48,7 @@ class Translator(APIView):
         # print(response[0]['translations'][0]['text'])
         return Response(response[0]['translations'][0]['text'])
     
-
+@throttle_classes([TierThrottle])
 class LanguageDetection(APIView):
     def post(self, request):
         key = env.get("TRANSLATOR_KEY")
