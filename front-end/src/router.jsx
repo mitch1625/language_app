@@ -7,6 +7,7 @@ import SettingsPage from "./pages/SettingsPage"
 import UpdateEmailItem from "./components/UpdateEmailItem"
 import PremiumPage from "./pages/PremiumPage"
 import UpdatePasswordItem from "./components/UpdatePasswordItem"
+import AllPostsPage from "./pages/AllPostsPage"
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path:'settings/update-password',
                 element: <UpdatePasswordItem/>
+            },
+            {
+                path:'allposts/',
+                element:<AllPostsPage/>
             }
         ]
     }

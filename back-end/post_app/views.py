@@ -11,21 +11,25 @@ from collections import ChainMap
 
 class Filtered_Post(UserPermissions):
     def get(self, request):
-        # posts = PostSerializer(Post.objects.order_by('id'), many=True)
-
         user_target = request.user.target_language
         user_native = request.user.native_language
-
-
-
-        users = User.objects.all().filter(native_language=user_target, target_language=user_native)
+        #gets user's post
+        user = User.objects.all().filter(id=request.user.id)
+        #gets all users who meet criteria
+        users = User.objects.all().filter(native_language=user_target, target_language=user_native) | user
 
         posts = [PostSerializer(user.user.all(), many=True).data for user in users if user.user.all()]
-        
         flat = [post for user in posts for post in user]
         sorted_list = sorted(flat, key=lambda i: i['id'], reverse=True)
         
         return Response(sorted_list)
+
+class All_post(UserPermissions):
+    def get(self, request):
+        posts = Post.objects.all().order_by('-id')
+        ser_post = PostSerializer(posts, many=True)
+        print(ser_post.data)
+        return Response(ser_post.data)
 
 
 class Create_post(UserPermissions):

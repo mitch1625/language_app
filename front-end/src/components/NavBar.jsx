@@ -19,8 +19,9 @@ const NavBar = ( { user, setUser } ) => {
   return (
 
     <Navbar className="bg-body-tertiary">
-      <Container fluid>
-        <Link to="/" style={{textDecoration:'none', color:'black'}}>Tiki Taka</Link>
+      <Container style={{display:'flex', justifyContent:'space-around'}}>
+        <Link to="/" style={{textDecoration:'none', color:'black'}}>Home</Link>
+        <Link to="allposts/" style={{textDecoration:'none', color:'black'}}>All Posts</Link>
         <NavDropdown title="Settings" style={{color:'black'}} id="navbarScrollingDropdown">
               <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to="settings/update-email/">Update Email</Link>
@@ -36,12 +37,6 @@ const NavBar = ( { user, setUser } ) => {
         </NavDropdown>
         <Link onClick={logout} style={{color:'black', textDecoration:"none"}}>Logout</Link>
         <Navbar.Toggle />
-
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Logged in as: {user}
-          </Navbar.Text>
-        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
