@@ -26,9 +26,9 @@ const NavBar = ( { user, setUser } ) => {
               <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to="settings/update-email/">Update Email</Link>
                 </NavDropdown.Item>
-              <NavDropdown.Item>
+              {/* <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to='settings/update-password'>Update Password</Link>
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Item>
                 <Link style={{textDecoration:'none', color:'black'}} to='settings/get-premium/'>
                 Get Premium

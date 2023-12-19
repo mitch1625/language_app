@@ -50,7 +50,12 @@ export const PostItem = () => {
                     'from': posterLang,
                     'body': text
                 }
-            })    
+            })
+            .catch((err) =>{
+                if (err.response.status === 429){
+                    return
+                }   
+            }) 
             setTranslation([
                 ...translation,
                { postId: postId,
@@ -75,6 +80,7 @@ export const PostItem = () => {
         <div id='post-component'>
         {posts.length != 0 ? 
         <ul style={{marginTop:'0px', listStyle:'none'}}>
+
         {posts.map((post) => (
             <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
             paddingLeft:'30px',paddingRight:'20px', paddingBottom:'10px', backgroundColor:'#EDF5E1',
