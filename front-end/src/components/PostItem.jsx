@@ -33,9 +33,12 @@ export const PostItem = () => {
         }
         let response = await axios
             .post("http://127.0.0.1:8000/api/v1/translate/detect/", data)
-            console.log(response.status)
+            .catch((err) =>{
+                if (err.response.status === 429){
+                    alert('Basic users only get 3 translations a day')
+                }
+            })
             setPosterLang(response.data)
-            console.log(`DETECTED LANG:${response.data}`)
     }
  
 
