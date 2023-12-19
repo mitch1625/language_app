@@ -15,13 +15,12 @@ class Filtered_Post(UserPermissions):
 
         user_target = request.user.target_language
         user_native = request.user.native_language
-
-
-
-        users = User.objects.all().filter(native_language=user_target, target_language=user_native)
+        #gets user's post
+        user = User.objects.all().filter(id=request.user.id)
+        #gets all users who meet criteria
+        users = User.objects.all().filter(native_language=user_target, target_language=user_native) | user
 
         posts = [PostSerializer(user.user.all(), many=True).data for user in users if user.user.all()]
-        
         flat = [post for user in posts for post in user]
         sorted_list = sorted(flat, key=lambda i: i['id'], reverse=True)
         

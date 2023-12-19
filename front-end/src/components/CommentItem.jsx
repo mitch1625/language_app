@@ -59,7 +59,7 @@ return (
             onMouseEnter={()=> setPostId(id)}
             onChange={(e)=>setCommentText(e.target.value)}>
           </Form.Control>
-          <div style={{marginTop:'5px', display:'flex', justifyContent:'space-between'}}>
+          <div style={{marginTop:'5px', display:'flex'}}>
             {renderComment.length  === 0 ? 
               null
               :
@@ -72,8 +72,8 @@ return (
                 View Comments
               </Button> 
           }
-            <Button type='submit'style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
-            >Submit Comment</Button>
+          <Button type='submit'style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
+          >Submit Comment</Button>
           </div>
           <Collapse in={open}>
             <div className="comment-collapse">
