@@ -37,8 +37,6 @@ class Create_post(UserPermissions):
         data = request.data.copy()
         data['poster'] = request.user.id
 
-        # print(request)
-        # print(data)
         new_post = CreatePostSerializer(data=data)
         
         if new_post.is_valid():
