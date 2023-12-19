@@ -23,7 +23,6 @@ const AllPostsPage = () => {
                 .catch((err)=> {
                     console.log(err.response)
                 })
-            // console.log(response.data)
             setPosts(response.data)
         }
         
@@ -39,7 +38,6 @@ const AllPostsPage = () => {
                 }
             })
                 setPosterLang(response.data)
-                console.log(`DETECTED LANG:${response.data}`)
         }
         
 
@@ -62,7 +60,6 @@ const AllPostsPage = () => {
                     { postId: postId,
                         text: response.data}]
                 )
-                console.log(translation)
         }
 
         
