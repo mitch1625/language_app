@@ -11,8 +11,6 @@ from collections import ChainMap
 
 class Filtered_Post(UserPermissions):
     def get(self, request):
-        # posts = PostSerializer(Post.objects.order_by('id'), many=True)
-
         user_target = request.user.target_language
         user_native = request.user.native_language
         #gets user's post
@@ -25,6 +23,13 @@ class Filtered_Post(UserPermissions):
         sorted_list = sorted(flat, key=lambda i: i['id'], reverse=True)
         
         return Response(sorted_list)
+
+class All_post(UserPermissions):
+    def get(self, request):
+        posts = Post.objects.all().order_by('-id')
+        ser_post = PostSerializer(posts, many=True)
+        print(ser_post.data)
+        return Response(ser_post.data)
 
 
 class Create_post(UserPermissions):
