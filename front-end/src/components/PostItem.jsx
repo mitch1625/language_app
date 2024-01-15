@@ -4,14 +4,14 @@ import { useOutletContext } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import CommentItem from "./CommentItem"
-
+import CardComponent from "./CardComponent";
 
 export const PostItem = () => {
     const [posts, setPosts] = useState([])
     const {user} = useOutletContext()
     const [text, setText] = useState("")
     const [posterLang, setPosterLang] = useState("")
-    const [translation, setTranslation] = useState([{}])
+    const [translation, setTranslation] = useState([])
     const [postId, setPostId] = useState(null)
 
     let token = localStorage.getItem("token")
@@ -23,7 +23,7 @@ export const PostItem = () => {
             .catch((err)=> {
                 console.log(err.response)
             })
-        // console.log(response.data)
+        console.log(response.data)
         setPosts(response.data)
     }
 
@@ -61,58 +61,48 @@ export const PostItem = () => {
                { postId: postId,
                 text: response.data}]
             )
-            console.log(translation)
     }
 
+    useEffect(()=> {
+        if (translation.some(obj => obj.id === postId)) {
+            getTranslation()
+        }
+    },[translation, postId])
 
     useEffect(()=>{
-        getFilteredPosts();
+            getFilteredPosts();
     },[user])
 
-
-    const onClickHandler = () => {
-        detectLanguage(text)
+    const onClickHandler = (info, postId) => {
+        setText(info['post_content'])
+        detectLanguage()
+        setPostId(postId)
         getTranslation()
+    }
+
+    const renderTranslations = (postId) => {
+        const postTranslation = translation.find((post) =>post.id === postId)
+        return postTranslation ? postTranslation.text : null
     }
 
     return(
         <>
         <div id='post-component'>
-        {posts.length != 0 ? 
-        <ul style={{marginTop:'0px', listStyle:'none'}}>
-
+        <button onClick={()=>console.log(translation)}>CLICK ME</button>
         {posts.map((post) => (
-            <Card key={post.id} id={post.id} style={{ width: '50vw', marginBottom:'15px', 
-            paddingLeft:'30px',paddingRight:'20px', paddingBottom:'10px', backgroundColor:'#EDF5E1',
-            color:'#05386B', borderRadius:25, border:'1px solid dimgrey'
-        }}
-            onMouseEnter={()=>{setText(post.post_content) ,setPostId(post.id)}}>
-            <Card.Body>
-                <div style={{display:'flex', justifyContent:'space-between'}}>
-                <Card.Title style={{fontSize:'30px'}}>{post.poster[0]}</Card.Title>
-                <Button className='translate-button' style={{width:'50px', backgroundColor:'#EDF5E1', color:'black', border:'none'}} 
-                    onClick={()=>{
-                        onClickHandler(post)
-                    }}>
-                    <img src={"./src/assets/translate.png"} style={{height:'30px', width:'30px'}}/>
-                </Button>
-                </div>
-                <Card.Subtitle className="mb-2 text-muted">{`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}</Card.Subtitle>
-                <Card.Text style={{color:'black', fontSize:'24px'}}>
-                {post.post_content}
-                </Card.Text>
-                <Card.Text style={{color:'black', fontSize:'24px', marginTop:'-16px'}}>
-                {translation.map((item) => (
-                    item['postId'] === post.id ? item['text']: null
-                    ))}
-                </Card.Text>
-            </Card.Body>
-            <CommentItem id={post.id}/>
-            </Card>
+            <CardComponent key={post.id} id={post.id} className="post-card"
+            post = {post}
+            poster = {post.poster[0]}
+            postContent = {post.post_content}
+            languages = {`${post.poster[1].toUpperCase()} ➜ ${post.poster[2].toUpperCase()}`}
+            translation = {translation.map((item) => (
+                item.postId === post.id ? item['text']: null
+                ))}
+            onClickHandler = {onClickHandler}
+            postId = {post.id}
+            >
+            </CardComponent>
         ))}
-        </ul>
-        :
-        "No posts to show for your learning goals"}
         </div>
         </>
     )

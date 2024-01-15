@@ -37,7 +37,8 @@ const AllPostsPage = () => {
                     alert('Basic users only get 3 translations a day')
                 }
             })
-                setPosterLang(response.data)
+            console.log(data)
+            setPosterLang(response.data)
         }
         
 
@@ -67,7 +68,7 @@ const AllPostsPage = () => {
             getAllPosts();
         },[user])
         
-        
+
         const onClickHandler = () => {
             detectLanguage(text)
             getTranslation()
@@ -75,7 +76,7 @@ const AllPostsPage = () => {
 
         return(
             <>
-            <div id='post-component'>
+            <div className='post-component'>
             {posts.length != 0 ? 
             <ul style={{marginTop:'0px', listStyle:'none'}}>
             {posts.map((post) => (

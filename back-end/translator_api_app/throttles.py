@@ -6,7 +6,7 @@ class TierThrottle(UserRateThrottle):
     def allow_request(self, request, view):
         user = request.user
         if user.premium_account == False:
-            self.rate = '6/day'
+            self.rate = '10/day'
         elif user.premium_account == True:
             self.rate = '100/day'
 
