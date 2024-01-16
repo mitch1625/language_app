@@ -69,8 +69,10 @@ const AllPostsPage = () => {
         
         
         const onClickHandler = () => {
+            if (translation.filter((obj) => obj.postId === postId).length !== 1) {
             detectLanguage(text)
             getTranslation()
+            }
         }
 
         return(
