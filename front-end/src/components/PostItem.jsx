@@ -77,10 +77,12 @@ export const PostItem = () => {
     const onClickHandler = (info, postId) => {
         console.log(info)
         console.log(postId)
+        if (translation.filter((obj) => obj.postId === postId).length !== 1) {
         setText(info['post_content'])
         detectLanguage()
         setPostId(postId)
         getTranslation()
+        }
     }
 
     return(
