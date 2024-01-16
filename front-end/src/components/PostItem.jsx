@@ -44,6 +44,8 @@ export const PostItem = () => {
 
 
     const getTranslation = async() => {
+        if (translation.filter((obj) => obj.postId === postId).length !== 1) {
+
         let response = await axios
             .get("http://127.0.0.1:8000/api/v1/translate/", {
                 params: {
@@ -61,34 +63,29 @@ export const PostItem = () => {
                { postId: postId,
                 text: response.data}]
             )
+               }
     }
 
     useEffect(()=> {
-        if (translation.some(obj => obj.id === postId)) {
             getTranslation()
-        }
-    },[translation, postId])
+    },[translation])
 
     useEffect(()=>{
             getFilteredPosts();
     },[user])
 
     const onClickHandler = (info, postId) => {
+        console.log(info)
+        console.log(postId)
         setText(info['post_content'])
         detectLanguage()
         setPostId(postId)
         getTranslation()
     }
 
-    const renderTranslations = (postId) => {
-        const postTranslation = translation.find((post) =>post.id === postId)
-        return postTranslation ? postTranslation.text : null
-    }
-
     return(
         <>
         <div id='post-component'>
-        <button onClick={()=>console.log(translation)}>CLICK ME</button>
         {posts.map((post) => (
             <CardComponent key={post.id} id={post.id} className="post-card"
             post = {post}

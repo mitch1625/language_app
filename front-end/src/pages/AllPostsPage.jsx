@@ -44,6 +44,7 @@ const AllPostsPage = () => {
 
 
         const getTranslation = async() => {
+            if (translation.filter((obj) => obj.postId === postId).length !== 1) {
             let response = await axios
                 .get("http://127.0.0.1:8000/api/v1/translate/", {
                     params: {
@@ -61,6 +62,7 @@ const AllPostsPage = () => {
                     { postId: postId,
                         text: response.data}]
                 )
+            }
         }
 
         

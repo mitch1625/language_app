@@ -7,6 +7,16 @@ const CardComponent = ({poster, postContent, languages, translation, postId, onC
     const translationHandler = (post) => {
         onClickHandler(post, postId)
     }
+
+    const renderTranslation = () => {
+        let temp = translation.map((item) => (
+            item.postId === postId  
+            ))
+            console.log(temp)
+    }
+    
+    
+    
     
     return (
         <div className='post-component'>
