@@ -23,7 +23,6 @@ export const PostItem = () => {
             .catch((err)=> {
                 console.log(err.response)
             })
-        console.log(response.data)
         setPosts(response.data)
     }
 
@@ -46,8 +45,8 @@ export const PostItem = () => {
 
 
     const getTranslation = async() => {
+        // Prevents translation from being called multiple times for same post
         if (translation.filter((obj) => obj.postId === postId).length !== 1) {
-
         let response = await axios
             .get("http://127.0.0.1:8000/api/v1/translate/", {
                 params: {
@@ -65,7 +64,7 @@ export const PostItem = () => {
                { postId: postId,
                 text: response.data}]
             )
-               }
+        }
     }
 
     useEffect(()=>{
@@ -77,7 +76,6 @@ export const PostItem = () => {
         setText(post_content)
         setPostId(id)
         detectLanguage()
-
     }
 
     useEffect(()=> {

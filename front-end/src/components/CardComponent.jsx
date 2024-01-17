@@ -20,7 +20,7 @@ const CardComponent = ({poster, postContent, languages, translation, postId, onC
                 onClick={()=>{
                     translationHandler(post)
                 }}>
-                <img src={"./src/assets/translate.png"} style={{height:'30px', width:'30px'}}/>
+                <img src={"../src/assets/translate.png"} style={{height:'30px', width:'30px'}}/>
             </Button>
         </div>
             <Card.Subtitle className="mb-2 text-muted">{languages}</Card.Subtitle>
