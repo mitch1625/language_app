@@ -5,17 +5,9 @@ import CommentItem from './CommentItem';
 const CardComponent = ({poster, postContent, languages, translation, postId, onClickHandler, post}) => {
     
     const translationHandler = (post) => {
+        console.log(post)
         onClickHandler(post, postId)
     }
-
-    const renderTranslation = () => {
-        let temp = translation.map((item) => (
-            item.postId === postId  
-            ))
-            console.log(temp)
-    }
-    
-    
     
     
     return (

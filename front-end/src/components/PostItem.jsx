@@ -28,6 +28,7 @@ export const PostItem = () => {
     }
 
     const detectLanguage = async() => {
+        if (translation.filter((obj) => obj.postId === postId).length !== 1) {
         let data = {
             "Text": text
         }
@@ -39,6 +40,7 @@ export const PostItem = () => {
                 }
             })
             setPosterLang(response.data)
+        }
     }
  
 
@@ -66,24 +68,21 @@ export const PostItem = () => {
                }
     }
 
-    useEffect(()=> {
-            getTranslation()
-    },[translation])
-
     useEffect(()=>{
             getFilteredPosts();
     },[user])
 
-    const onClickHandler = (info, postId) => {
-        console.log(info)
-        console.log(postId)
-        if (translation.filter((obj) => obj.postId === postId).length !== 1) {
-        setText(info['post_content'])
+    const onClickHandler = (info) => {
+        const {post_content, id} = info
+        setText(post_content)
+        setPostId(id)
         detectLanguage()
-        setPostId(postId)
-        getTranslation()
-        }
+
     }
+
+    useEffect(()=> {
+        getTranslation()
+    },[text, postId])
 
     return(
         <>
