@@ -28,7 +28,7 @@ class All_post(UserPermissions):
     def get(self, request):
         posts = Post.objects.all().order_by('-id')
         ser_post = PostSerializer(posts, many=True)
-        print(ser_post.data)
+        # print(ser_post.data)
         return Response(ser_post.data)
 
 
