@@ -42,8 +42,6 @@ export const PostItem = () => {
         }
     }
  
-
-
     const getTranslation = async() => {
         // Prevents translation from being called multiple times for same post
         if (translation.filter((obj) => obj.postId === postId).length !== 1) {
@@ -67,10 +65,6 @@ export const PostItem = () => {
         }
     }
 
-    useEffect(()=>{
-            getFilteredPosts();
-    },[user])
-
     const onClickHandler = (info) => {
         const {post_content, id} = info
         setText(post_content)
@@ -78,9 +72,14 @@ export const PostItem = () => {
         detectLanguage()
     }
 
+    useEffect(()=>{
+        getFilteredPosts();
+    },[])
+
     useEffect(()=> {
         getTranslation()
     },[text, postId])
+    
 
     return(
         <>

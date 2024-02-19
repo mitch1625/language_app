@@ -84,7 +84,7 @@ html {
 
 .translate-button {
     width:50px;
-    background-color:#EDF5E1;
+    background-color: transparent;
     color:black; 
     border: none;
 }

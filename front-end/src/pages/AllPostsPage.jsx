@@ -63,11 +63,6 @@ const AllPostsPage = () => {
             )
         }
     }
-
-    
-    useEffect(()=>{
-        getAllPosts();
-    },[user])
     
     const onClickHandler = (info) => {
         const {post_content, id} = info
@@ -75,6 +70,10 @@ const AllPostsPage = () => {
         setPostId(id)
         detectLanguage()
     }
+    
+    useEffect(()=>{
+        getAllPosts();
+    },[])
 
     useEffect(()=> {
         getTranslation()
