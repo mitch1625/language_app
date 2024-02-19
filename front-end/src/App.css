@@ -93,3 +93,23 @@ html {
     color:black;
     font-size:24px
 }
+
+.comment-user {
+    font-size: 25px;
+    color: black;
+}
+
+.comment-content{
+    color:'black'; 
+    font-size:'20px'}
+
+@media (max-width: 767px){
+    .card-text {font-size: 18px;}
+    .card-title {font-size:22px}
+    .comment-user {font-size: 20px;}
+    .comment-buttons {font-size: 12px;}
+    .user-languages {font-size: 10px;}
+    .comment-content {font-size: 16px;}
+
+}
+

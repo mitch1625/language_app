@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import CommentItem from "../components/CommentItem"
 import CardComponent from "../components/CardComponent";
+import CreatePostItem from '../components/CreatePostItem'
 
 const AllPostsPage = () => {
     const [posts, setPosts] = useState([])
@@ -81,6 +82,7 @@ const AllPostsPage = () => {
 
     return(
         <>
+        <CreatePostItem/>
             <div id='post-component'>
             {posts.map((post) => (
                 <CardComponent key={post.id} id={post.id} className="post-card"

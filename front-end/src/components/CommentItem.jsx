@@ -68,11 +68,12 @@ return (
               onClick={() => setOpen(!open)}
               aria-controls="example-collapse-text"
               aria-expanded={open}
+              className='comment-buttons'
               >
                 View Comments
               </Button> 
           }
-          <Button type='submit'style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
+          <Button className='comment-buttons' type='submit'style={{color:'#05386B', backgroundColor:'#EDF5E1', borderColor:'#05386B'}}
           >Submit Comment</Button>
           </div>
           <Collapse in={open}>
@@ -81,10 +82,10 @@ return (
                 
                 <ListGroup key={comment.id} style={{marginTop:'3px'}}>
                 <ListGroup.Item style={{marginBottom:'3px'}}>
-                  <div style={{fontSize:'25px', color:'black'}}>
+                  <div className='comment-user'>
                     {comment['comment_user']}
                   </div>
-                  <div style={{color:'black', fontSize:'20px'}}>
+                  <div className='comment-content' >
                   {comment['content']}
                   </div>
                 
