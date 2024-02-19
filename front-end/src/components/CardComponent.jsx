@@ -14,9 +14,8 @@ const CardComponent = ({poster, postContent, languages, translation, postId, onC
         <div className='post-component'>
         <Card className='post-card' key={postId}>
         <Card.Body>
-        <Card.Title>
         <div style={{display:'flex', justifyContent:'space-between'}}>
-            {poster}
+        <Card.Title>{poster}</Card.Title>
             <Button className='translate-button' 
                 onClick={()=>{
                     translationHandler(post)
@@ -24,8 +23,7 @@ const CardComponent = ({poster, postContent, languages, translation, postId, onC
                 <img src={"../src/assets/translate.png"} style={{height:'30px', width:'30px'}}/>
             </Button>
         </div>
-        </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{languages}</Card.Subtitle>
+            <Card.Subtitle className="user-languages">{languages}</Card.Subtitle>
             <Card.Text>
                 {postContent}
             </Card.Text>
